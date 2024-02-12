@@ -9,14 +9,27 @@
   "categories": [
     "Other"
   ],
-  "activationEvents": [],
+  "activationEvents": [
+    "onCommand:editor.action.clipboardCopyAction",
+    "onCommand:editor.action.clipboardPasteAction"
+  ],
   "main": "./out/extension.js",
   "contributes": {
     "commands": [
       {
         "command": "codeguardian.helloWorld",
         "title": "Hello World"
-      }
+      },
+      {
+        "command": "editor.action.clipboardCopyAction",
+        "title": "Copy",
+        "category": "Edit"
+    },
+    {
+        "command": "editor.action.clipboardPasteAction",
+        "title": "Paste",
+        "category": "Edit"
+    }
     ]
   },
   "scripts": {
