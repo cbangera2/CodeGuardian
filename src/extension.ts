@@ -1,6 +1,8 @@
 import * as vscode from 'vscode';
 import * as fs from 'fs';
 import * as path from 'path';
+import * as crypto from 'crypto';
+
 import { SidebarProvider } from './sidebarProvider';
 import { JsonTreeDataProvider } from './jsonTreeDataProvider';
 
@@ -12,6 +14,7 @@ interface EditInfo {
     text?: string; // Optional field to store the text of suspicious edits
     lineNumber?: number;
     fileName?: string; // Optional field to store the
+    hash?: string;
 }
 
 interface SuspiciousEdit {
@@ -20,6 +23,7 @@ interface SuspiciousEdit {
     text: string;
     lineNumber?: number;
     fileName?: string;
+    hash?: string;
 }
 
 interface Analytics {
@@ -29,6 +33,7 @@ interface Analytics {
     averageTypingSpeed: number; // Characters per minute
     suspiciousEditDetails: SuspiciousEdit[]; // Array to store details of suspicious edits
     normalEditDetails: EditInfo[]; // Array to store details of normal edits
+    hash?: string;
 }
 
 let analytics: Analytics = {
@@ -56,9 +61,11 @@ function updateAnalytics(editInfo: EditInfo) {
             text: editInfo.text || '', // Ensure there's a default value
             lineNumber: editInfo.lineNumber,
             fileName: editInfo.fileName,
+            hash: computeHash(editInfo),
         });
     }
     else {
+        editInfo.hash = computeHash(editInfo);
         analytics.normalEditDetails.push(editInfo);
     }
 
@@ -66,6 +73,18 @@ function updateAnalytics(editInfo: EditInfo) {
     const totalCharactersTyped = analytics.normalEditDetails.filter(edit => edit.text).reduce((acc, edit) => acc + edit.contentLength, 0);
     const totalTimeSpentTyping = analytics.normalEditDetails.length > 1 ? (analytics.normalEditDetails[analytics.normalEditDetails.length - 1].timestamp.getTime() - analytics.normalEditDetails[0].timestamp.getTime()) / 60000 : 0; // in minutes
     analytics.averageTypingSpeed = totalTimeSpentTyping > 0 ? Math.round((totalCharactersTyped / 5) / totalTimeSpentTyping) : 0; // considering a word as 5 characters
+}
+
+function computeHash(object: any): string {
+    const objectString = JSON.stringify(object);
+    const hashSum = crypto.createHash('sha256');
+    hashSum.update(objectString);
+    return hashSum.digest('hex');
+}
+function hasEditInfoChanged(editInfo: any): boolean {
+    const currentHash = editInfo.hash;
+    const computedHash = computeHash(editInfo);
+    return currentHash !== computedHash;
 }
 
 export function activate(context: vscode.ExtensionContext) {
@@ -112,7 +131,9 @@ export function activate(context: vscode.ExtensionContext) {
             text, // Include the text content of the edit
             lineNumber: edit.range.start.line,
             fileName: filePath,
+            hash: '',
         };
+        editInfo.hash = computeHash(editInfo);
         if (update) {
             updateAnalytics(editInfo);
         }

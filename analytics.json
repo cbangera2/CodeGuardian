@@ -1,89 +1,82 @@
 {
-  "totalEdits": 36,
+  "totalEdits": 54,
   "totalLinesEdited": 0,
-  "suspiciousEdits": 1,
-  "averageTypingSpeed": 32,
+  "suspiciousEdits": 4,
+  "averageTypingSpeed": 50,
   "suspiciousEditDetails": [
     {
-      "timestamp": "2024-02-14T00:23:04.294Z",
-      "contentLength": 273,
-      "text": "vector<int> twoSum(vector<int>& nums, int target) {\n    int len = nums.size();\n    for(int i = 0; i < len; i++) {\n        for(int j = i + 1; j < len; j++) {\n            if(nums[j] == target - nums[i])\n                return { i, j };\n        }\n    }\n    return {-1, -1};\n};",
+      "timestamp": "2024-02-14T17:20:28.965Z",
+      "contentLength": 3,
+      "text": "i =",
       "lineNumber": 1,
-      "fileName": "Untitled-1"
+      "fileName": "/Users/cbang/Documents/TreeHacks/test.cpp",
+      "hash": "8954cce0b8d3992da5003d4d0617c125993e20d202887b3daf5f549d23d98ced"
+    },
+    {
+      "timestamp": "2024-02-14T17:20:29.587Z",
+      "contentLength": 10,
+      "text": "int i = 0;",
+      "lineNumber": 1,
+      "fileName": "/Users/cbang/Documents/TreeHacks/test.cpp",
+      "hash": "173b41d2785ab5cbc82dc40cb00d43696ab8ca190007dfa6af33044c16ac34e5"
+    },
+    {
+      "timestamp": "2024-02-14T17:20:32.452Z",
+      "contentLength": 10,
+      "text": "int j = 0;",
+      "lineNumber": 2,
+      "fileName": "/Users/cbang/Documents/TreeHacks/test.cpp",
+      "hash": "64640e8cd706e1bbd26b7d1bb762c19c68703e78231da34a12e0a88f0ba98d45"
+    },
+    {
+      "timestamp": "2024-02-14T17:20:40.348Z",
+      "contentLength": 28,
+      "text": "// Here is some hash testing",
+      "lineNumber": 4,
+      "fileName": "/Users/cbang/Documents/TreeHacks/test.cpp",
+      "hash": "c0de5c3251c649523263afa7b2136ddfa16184362cfcb4fae49bac196732f4e8"
     }
   ],
   "normalEditDetails": [
     {
-      "timestamp": "2024-02-14T00:23:04.914Z",
-      "contentLength": 2,
+      "timestamp": "2024-02-14T17:20:24.810Z",
+      "contentLength": 8,
       "action": "typing",
       "suspicious": false,
-      "text": "};",
-      "lineNumber": 10,
-      "fileName": "Untitled-1"
+      "text": "// Hello",
+      "lineNumber": 0,
+      "fileName": "/Users/cbang/Documents/TreeHacks/test.cpp",
+      "hash": "dc6785cecb855baf3eeac3ef43a30de20e4d9f6b01596ee54ed34e0d6dc73c67"
     },
     {
-      "timestamp": "2024-02-14T00:23:07.785Z",
-      "contentLength": 9,
+      "timestamp": "2024-02-14T17:20:30.508Z",
+      "contentLength": 10,
       "action": "typing",
       "suspicious": false,
-      "text": "int i =0;",
-      "lineNumber": 11,
-      "fileName": "Untitled-1"
+      "text": "int i = 0;",
+      "lineNumber": 1,
+      "fileName": "/Users/cbang/Documents/TreeHacks/test.cpp",
+      "hash": "d392782a06c55d84acdf775e1e752e21f9321737534b164641f9e2c2b935bfd3"
     },
     {
-      "timestamp": "2024-02-14T00:23:11.715Z",
-      "contentLength": 11,
+      "timestamp": "2024-02-14T17:20:32.997Z",
+      "contentLength": 10,
       "action": "typing",
       "suspicious": false,
-      "text": "int p = 12;",
-      "lineNumber": 12,
-      "fileName": "Untitled-1"
+      "text": "int j = 0;",
+      "lineNumber": 2,
+      "fileName": "/Users/cbang/Documents/TreeHacks/test.cpp",
+      "hash": "0ded1f8dfa339d901bec4f0d2c0b73d1dd743cd08f9afc97e0c7ea39d67c8030"
     },
     {
-      "timestamp": "2024-02-14T00:23:13.268Z",
-      "contentLength": 1,
+      "timestamp": "2024-02-14T17:20:38.285Z",
+      "contentLength": 28,
       "action": "typing",
       "suspicious": false,
-      "text": "1",
-      "lineNumber": 13,
-      "fileName": "Untitled-1"
-    },
-    {
-      "timestamp": "2024-02-14T00:23:13.546Z",
-      "contentLength": 1,
-      "action": "typing",
-      "suspicious": false,
-      "text": "2",
-      "lineNumber": 14,
-      "fileName": "Untitled-1"
-    },
-    {
-      "timestamp": "2024-02-14T00:23:13.861Z",
-      "contentLength": 1,
-      "action": "typing",
-      "suspicious": false,
-      "text": "3",
-      "lineNumber": 15,
-      "fileName": "Untitled-1"
-    },
-    {
-      "timestamp": "2024-02-14T00:23:14.194Z",
-      "contentLength": 1,
-      "action": "typing",
-      "suspicious": false,
-      "text": "4",
-      "lineNumber": 16,
-      "fileName": "Untitled-1"
-    },
-    {
-      "timestamp": "2024-02-14T00:23:15.199Z",
-      "contentLength": 1,
-      "action": "typing",
-      "suspicious": false,
-      "text": "5",
-      "lineNumber": 17,
-      "fileName": "Untitled-1"
+      "text": "// Here is some hash testing",
+      "lineNumber": 3,
+      "fileName": "/Users/cbang/Documents/TreeHacks/test.cpp",
+      "hash": "a87ac5c0bc871861d8c61f15b5f27ea4273703c2aa1e1fb396e3562e4930ac55"
     }
   ]
 }
