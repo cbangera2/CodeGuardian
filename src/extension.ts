@@ -1,50 +1,136 @@
-// The module 'vscode' contains the VS Code extensibility API
-// Import the module and reference it with the alias vscode in your code below
 import * as vscode from 'vscode';
 import * as fs from 'fs';
 import * as path from 'path';
 
-// This method is called when your extension is activated
-// Your extension is activated the very first time the command is executed
-export function activate(context: vscode.ExtensionContext) {
-
-	// Use the console to output diagnostic information (console.log) and errors (console.error)
-	// This line of code will only be executed once when your extension is activated
-	console.log('Congratulations, your extension "CodeGuardian" is now active!');
-	
-	const logFilePath = path.join(context.extensionPath, 'copy-paste-log.txt');
-
-    function logToFile(message: string) {
-        const timestamp = new Date().toISOString();
-        fs.appendFileSync(logFilePath, `${timestamp}: ${message}\n`, { encoding: 'utf8' });
-    }
-
-    let lastSelection = new vscode.Selection(new vscode.Position(0, 0), new vscode.Position(0, 0));
-    let likelyCopiedText = '';
-
-    vscode.window.onDidChangeTextEditorSelection(event => {
-        if (!event.selections[0].isEqual(lastSelection)) {
-            lastSelection = event.selections[0];
-            if (!event.selections[0].isEmpty) {
-                likelyCopiedText = event.textEditor.document.getText(event.selections[0]);
-            }
-        }
-    }, null, context.subscriptions);
-
-    vscode.workspace.onDidChangeTextDocument(event => {
-        if (event.contentChanges.length > 0) {
-            let change = event.contentChanges[0];
-            if (change.text.length > 1 || change.text === '\n') { // Simple heuristic to filter out single character changes
-                if (change.text === likelyCopiedText) {
-                    logToFile('Copied then pasted content: ' + change.text.substring(0, 100)); // Log only the first 100 chars for brevity
-                } else {
-                    logToFile('Pasted content from external source');
-                }
-            }
-        }
-    }, null, context.subscriptions);
-	
+interface EditInfo {
+    timestamp: Date;
+    contentLength: number;
+    action: 'typing' | 'pasting';
+    suspicious: boolean;
+    text?: string; // Optional field to store the text of suspicious edits
+    lineNumber?: number;
+    fileName?: string; // Optional field to store the
 }
 
-// This method is called when your extension is deactivated
-export function deactivate() {}
+interface SuspiciousEdit {
+    timestamp: Date;
+    contentLength: number;
+    text: string;
+    lineNumber?: number;
+    fileName?: string;
+}
+
+interface Analytics {
+    totalEdits: number;
+    totalLinesEdited: number;
+    suspiciousEdits: number;
+    averageTypingSpeed: number; // Characters per minute
+    suspiciousEditDetails: SuspiciousEdit[]; // Array to store details of suspicious edits
+    normalEditDetails: EditInfo[]; // Array to store details of normal edits
+}
+
+let analytics: Analytics = {
+    totalEdits: 0,
+    totalLinesEdited: 0,
+    suspiciousEdits: 0,
+    averageTypingSpeed: 0,
+    suspiciousEditDetails: [], // Initialize the array
+    normalEditDetails: [], // Initialize the array
+};
+
+const monitoredFileTypes = ['.js', '.cpp'];
+const suspiciousBehaviorThresholds = {
+    copyPasteSize: 2, // Characters
+    typingSpeed: 1000, // Milliseconds
+};
+
+function updateAnalytics(editInfo: EditInfo) {
+    if (editInfo.action === 'pasting' && editInfo.suspicious) {
+        analytics.suspiciousEdits += 1;
+        // Store details of the suspicious edit, including the text content
+        analytics.suspiciousEditDetails.push({
+            timestamp: editInfo.timestamp,
+            contentLength: editInfo.contentLength,
+            text: editInfo.text || '', // Ensure there's a default value
+            lineNumber: editInfo.lineNumber,
+            fileName: editInfo.fileName,
+        });
+    }
+    else {
+        analytics.normalEditDetails.push(editInfo);
+    }
+
+    // Calculate average typing speed (simplified)
+    const totalCharactersTyped = analytics.normalEditDetails.filter(edit => edit.text).reduce((acc, edit) => acc + edit.contentLength, 0);
+    const totalTimeSpentTyping = analytics.normalEditDetails.length > 1 ? (analytics.normalEditDetails[analytics.normalEditDetails.length - 1].timestamp.getTime() - analytics.normalEditDetails[0].timestamp.getTime()) / 60000 : 0; // in minutes
+    analytics.averageTypingSpeed = totalTimeSpentTyping > 0 ? Math.round((totalCharactersTyped / 5) / totalTimeSpentTyping) : 0; // considering a word as 5 characters
+}
+
+function activate(context: vscode.ExtensionContext) {
+    console.log('Extension "example" is now active.');
+
+    const textEditorChange = vscode.workspace.onDidChangeTextDocument((event) => {
+        const filePath = event.document.fileName;
+        const fileExtension = filePath.slice(filePath.lastIndexOf('.'));
+
+        // if (!monitoredFileTypes.includes(fileExtension)) {
+        //     return;
+        // }
+
+        const edits = event.contentChanges;
+        analytics.totalEdits += 1;
+        if (edits.length === 0) { return; }
+
+        const edit = edits[0]; // Considering only the first edit
+        const now = new Date();
+        let action: 'typing' | 'pasting' = 'typing';
+        let suspicious = false;
+        let update = false;
+        let text = edit.text;
+        let currentLine = event.document.lineAt(edit.range.start.line);
+
+        if (edit.text.length >= suspiciousBehaviorThresholds.copyPasteSize) {
+            action = 'pasting';
+            suspicious = true;
+            update = true;
+        } else if (edit.text === "\n") {
+            update = true;
+            text = currentLine.text;
+        }
+
+        const editInfo: EditInfo = {
+            timestamp: now,
+            contentLength: text.length,
+            action,
+            suspicious,
+            text, // Include the text content of the edit
+            lineNumber: edit.range.start.line,
+            fileName: filePath,
+        };
+        if (update) {
+            updateAnalytics(editInfo);
+        }
+
+        // Periodically save analytics to a file
+        if (analytics.totalEdits % 2 === 0) { // For example, every 10 edits
+            saveAnalyticsToFile(analytics, context.extensionPath);
+        }
+    });
+
+    context.subscriptions.push(textEditorChange);
+}
+
+function saveAnalyticsToFile(analytics: Analytics, extensionPath: string) {
+    const filePath = path.join(extensionPath, 'analytics.json');
+    fs.writeFile(filePath, JSON.stringify(analytics, null, 2), (err) => {
+        if (err) {
+            console.error('Failed to save analytics:', err);
+            return;
+        }
+        console.log('Analytics saved to', filePath);
+    });
+}
+
+function deactivate() { }
+
+module.exports = { activate, deactivate };
