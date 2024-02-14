@@ -1,10 +1,10 @@
 import * as vscode from 'vscode';
 import * as fs from 'fs';
 import * as path from 'path';
-import * as crypto from 'crypto';
 
 import { SidebarProvider } from './sidebarProvider';
 import { JsonTreeDataProvider } from './jsonTreeDataProvider';
+import { computeHash, verifyCommand } from './verifyData';
 
 interface EditInfo {
     timestamp: Date;
@@ -14,7 +14,7 @@ interface EditInfo {
     text?: string; // Optional field to store the text of suspicious edits
     lineNumber?: number;
     fileName?: string; // Optional field to store the
-    hash?: string;
+    hash: string;
 }
 
 interface SuspiciousEdit {
@@ -75,25 +75,15 @@ function updateAnalytics(editInfo: EditInfo) {
     analytics.averageTypingSpeed = totalTimeSpentTyping > 0 ? Math.round((totalCharactersTyped / 5) / totalTimeSpentTyping) : 0; // considering a word as 5 characters
 }
 
-function computeHash(object: any): string {
-    const objectString = JSON.stringify(object);
-    const hashSum = crypto.createHash('sha256');
-    hashSum.update(objectString);
-    return hashSum.digest('hex');
-}
-function hasEditInfoChanged(editInfo: any): boolean {
-    const currentHash = editInfo.hash;
-    const computedHash = computeHash(editInfo);
-    return currentHash !== computedHash;
-}
-
 export function activate(context: vscode.ExtensionContext) {
     console.log('Extension "CodeGuardian" is now active.');
     context.subscriptions.push(vscode.window.registerWebviewViewProvider('webView', new SidebarProvider(context.extensionUri)));
 
     const treeDataProvider = new JsonTreeDataProvider(context.extensionPath);
     vscode.window.createTreeView('jsonTreeView', { treeDataProvider });
-    
+
+    context.subscriptions.push(vscode.commands.registerCommand('codeguardian.verify', () => verifyCommand(context)));
+
     const textEditorChange = vscode.workspace.onDidChangeTextDocument((event) => {
         const filePath = event.document.fileName;
         const fileExtension = filePath.slice(filePath.lastIndexOf('.'));

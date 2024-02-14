@@ -1,82 +1,48 @@
 {
-  "totalEdits": 54,
+  "totalEdits": 36,
   "totalLinesEdited": 0,
-  "suspiciousEdits": 4,
-  "averageTypingSpeed": 50,
+  "suspiciousEdits": 1,
+  "averageTypingSpeed": 82,
   "suspiciousEditDetails": [
     {
-      "timestamp": "2024-02-14T17:20:28.965Z",
-      "contentLength": 3,
-      "text": "i =",
-      "lineNumber": 1,
+      "timestamp": "2024-02-14T17:41:16.922Z",
+      "contentLength": 88,
+      "text": "// Hello\nint i = 0;\nint j = 0;\n// Here is some hash testing\n// Here is some hash testing",
+      "lineNumber": 0,
       "fileName": "/Users/cbang/Documents/TreeHacks/test.cpp",
-      "hash": "8954cce0b8d3992da5003d4d0617c125993e20d202887b3daf5f549d23d98ced"
-    },
-    {
-      "timestamp": "2024-02-14T17:20:29.587Z",
-      "contentLength": 10,
-      "text": "int i = 0;",
-      "lineNumber": 1,
-      "fileName": "/Users/cbang/Documents/TreeHacks/test.cpp",
-      "hash": "173b41d2785ab5cbc82dc40cb00d43696ab8ca190007dfa6af33044c16ac34e5"
-    },
-    {
-      "timestamp": "2024-02-14T17:20:32.452Z",
-      "contentLength": 10,
-      "text": "int j = 0;",
-      "lineNumber": 2,
-      "fileName": "/Users/cbang/Documents/TreeHacks/test.cpp",
-      "hash": "64640e8cd706e1bbd26b7d1bb762c19c68703e78231da34a12e0a88f0ba98d45"
-    },
-    {
-      "timestamp": "2024-02-14T17:20:40.348Z",
-      "contentLength": 28,
-      "text": "// Here is some hash testing",
-      "lineNumber": 4,
-      "fileName": "/Users/cbang/Documents/TreeHacks/test.cpp",
-      "hash": "c0de5c3251c649523263afa7b2136ddfa16184362cfcb4fae49bac196732f4e8"
+      "hash": "b89f1abd30392cb12d69b0188ef42fbf3abb07d8c803fd0c69df7c16f367cea5"
     }
   ],
   "normalEditDetails": [
     {
-      "timestamp": "2024-02-14T17:20:24.810Z",
-      "contentLength": 8,
-      "action": "typing",
-      "suspicious": false,
-      "text": "// Hello",
-      "lineNumber": 0,
-      "fileName": "/Users/cbang/Documents/TreeHacks/test.cpp",
-      "hash": "dc6785cecb855baf3eeac3ef43a30de20e4d9f6b01596ee54ed34e0d6dc73c67"
-    },
-    {
-      "timestamp": "2024-02-14T17:20:30.508Z",
-      "contentLength": 10,
-      "action": "typing",
-      "suspicious": false,
-      "text": "int i = 0;",
-      "lineNumber": 1,
-      "fileName": "/Users/cbang/Documents/TreeHacks/test.cpp",
-      "hash": "d392782a06c55d84acdf775e1e752e21f9321737534b164641f9e2c2b935bfd3"
-    },
-    {
-      "timestamp": "2024-02-14T17:20:32.997Z",
-      "contentLength": 10,
-      "action": "typing",
-      "suspicious": false,
-      "text": "int j = 0;",
-      "lineNumber": 2,
-      "fileName": "/Users/cbang/Documents/TreeHacks/test.cpp",
-      "hash": "0ded1f8dfa339d901bec4f0d2c0b73d1dd743cd08f9afc97e0c7ea39d67c8030"
-    },
-    {
-      "timestamp": "2024-02-14T17:20:38.285Z",
+      "timestamp": "2024-02-14T17:41:16.956Z",
       "contentLength": 28,
       "action": "typing",
       "suspicious": false,
       "text": "// Here is some hash testing",
-      "lineNumber": 3,
+      "lineNumber": 4,
       "fileName": "/Users/cbang/Documents/TreeHacks/test.cpp",
-      "hash": "a87ac5c0bc871861d8c61f15b5f27ea4273703c2aa1e1fb396e3562e4930ac55"
+      "hash": "f3254ee26455f0c76eda82abc572cf4a673bc100859a7f6c5ecbb989a78ef75f"
+    },
+    {
+      "timestamp": "2024-02-14T17:41:20.298Z",
+      "contentLength": 8,
+      "action": "typing",
+      "suspicious": false,
+      "text": "int i=0l",
+      "lineNumber": 5,
+      "fileName": "/Users/cbang/Documents/TreeHacks/test.cpp",
+      "hash": "6b0f922b44733df606a081ca731f98bd8a6a6172ad088afb5ba2b0b5b21b2b93"
+    },
+    {
+      "timestamp": "2024-02-14T17:41:23.396Z",
+      "contentLength": 8,
+      "action": "typing",
+      "suspicious": false,
+      "text": "int i=0;",
+      "lineNumber": 5,
+      "fileName": "/Users/cbang/Documents/TreeHacks/test.cpp",
+      "hash": "13c569a53893745df875b4b64e221adae0551e7887cfa53d1f7254538df6941a"
     }
   ]
 }
