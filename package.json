@@ -10,8 +10,7 @@
     "Other"
   ],
   "activationEvents": [
-    "onCommand:editor.action.clipboardCopyAction",
-    "onCommand:editor.action.clipboardPasteAction"
+    "*"
   ],
   "main": "./out/extension.js",
   "contributes": {
@@ -24,13 +23,34 @@
         "command": "editor.action.clipboardCopyAction",
         "title": "Copy",
         "category": "Edit"
-    },
-    {
+      },
+      {
         "command": "editor.action.clipboardPasteAction",
         "title": "Paste",
         "category": "Edit"
+      }
+    ],
+    "viewsContainers": {
+      "activitybar": [
+          {
+              "id": "CodeGuardian",
+              "title": "CodeGuardian",
+              "icon": "/icon.svg"
+          }
+      ]
+  },
+    "views": {
+      "CodeGuardian": [
+        {
+          "id": "webView",
+          "name": "Web Portal"
+        },
+        {
+          "id": "jsonTreeView",
+          "name": "Analytics View"
+      }
+      ]
     }
-    ]
   },
   "scripts": {
     "vscode:prepublish": "npm run compile",
