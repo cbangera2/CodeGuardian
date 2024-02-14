@@ -110,6 +110,7 @@ export function activate(context: vscode.ExtensionContext) {
             update = true;
         } else if (edit.text === "\n") {
             update = true;
+            analytics.totalLinesEdited += 1;
             text = currentLine.text;
         }
 
