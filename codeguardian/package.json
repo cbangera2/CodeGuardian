@@ -9,15 +9,34 @@
   "categories": [
     "Other"
   ],
-  "activationEvents": [],
+  "activationEvents": [
+    "*"
+  ],
   "main": "./out/extension.js",
   "contributes": {
     "commands": [
       {
-        "command": "codeguardian.helloWorld",
-        "title": "Hello World"
+        "command": "codeguardian.verify",
+        "title": "Verify Edit History"
       }
-    ]
+    ],
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "CodeGuardian",
+          "title": "CodeGuardian",
+          "icon": "/icon.svg"
+        }
+      ]
+    },
+    "views": {
+      "CodeGuardian": [
+        {
+          "id": "jsonTreeView",
+          "name": "Analytics View"
+        }
+      ]
+    }
   },
   "scripts": {
     "vscode:prepublish": "npm run compile",

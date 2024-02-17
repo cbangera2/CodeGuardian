@@ -1,0 +1,48 @@
+{
+  "totalEdits": 36,
+  "totalLinesEdited": 0,
+  "suspiciousEdits": 1,
+  "averageTypingSpeed": 82,
+  "suspiciousEditDetails": [
+    {
+      "timestamp": "2024-02-14T17:41:16.922Z",
+      "contentLength": 88,
+      "text": "// Hello\nint i = 0;\nint j = 0;\n// Here is some hash testing\n// Here is some hash testing",
+      "lineNumber": 0,
+      "fileName": "/Users/cbang/Documents/TreeHacks/test.cpp",
+      "hash": "b89f1abd30392cb12d69b0188ef42fbf3abb07d8c803fd0c69df7c16f367cea5"
+    }
+  ],
+  "normalEditDetails": [
+    {
+      "timestamp": "2024-02-14T17:41:16.956Z",
+      "contentLength": 28,
+      "action": "typing",
+      "suspicious": false,
+      "text": "// Here is some hash testing",
+      "lineNumber": 4,
+      "fileName": "/Users/cbang/Documents/TreeHacks/test.cpp",
+      "hash": "f3254ee26455f0c76eda82abc572cf4a673bc100859a7f6c5ecbb989a78ef75f"
+    },
+    {
+      "timestamp": "2024-02-14T17:41:20.298Z",
+      "contentLength": 8,
+      "action": "typing",
+      "suspicious": false,
+      "text": "int i=0l",
+      "lineNumber": 5,
+      "fileName": "/Users/cbang/Documents/TreeHacks/test.cpp",
+      "hash": "6b0f922b44733df606a081ca731f98bd8a6a6172ad088afb5ba2b0b5b21b2b93"
+    },
+    {
+      "timestamp": "2024-02-14T17:41:23.396Z",
+      "contentLength": 8,
+      "action": "typing",
+      "suspicious": false,
+      "text": "int i=0;",
+      "lineNumber": 5,
+      "fileName": "/Users/cbang/Documents/TreeHacks/test.cpp",
+      "hash": "13c569a53893745df875b4b64e221adae0551e7887cfa53d1f7254538df6941a"
+    }
+  ]
+}
