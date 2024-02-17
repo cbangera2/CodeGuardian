@@ -6,7 +6,8 @@ import { JsonTreeDataProvider } from './jsonTreeDataProvider';
 import { computeHash, verifyCommand } from './verifyData';
 
 interface EditInfo {
-    timestamp: Date;
+    startTimeStamp: Date;
+    endTimeStamp?: Date;
     contentLength: number;
     action: 'typing' | 'pasting';
     suspicious: boolean;
@@ -17,7 +18,8 @@ interface EditInfo {
 }
 
 interface SuspiciousEdit {
-    timestamp: Date;
+    startTimeStamp: Date;
+    endTimeStamp?: Date;
     contentLength: number;
     text: string;
     lineNumber?: number;
@@ -55,7 +57,8 @@ function updateAnalytics(editInfo: EditInfo) {
         analytics.suspiciousEdits += 1;
         // Store details of the suspicious edit, including the text content
         analytics.suspiciousEditDetails.push({
-            timestamp: editInfo.timestamp,
+            startTimeStamp: editInfo.startTimeStamp,
+            endTimeStamp: editInfo.endTimeStamp,
             contentLength: editInfo.contentLength,
             text: editInfo.text || '', // Ensure there's a default value
             lineNumber: editInfo.lineNumber,
@@ -70,7 +73,7 @@ function updateAnalytics(editInfo: EditInfo) {
 
     // Calculate average typing speed (simplified)
     const totalCharactersTyped = analytics.normalEditDetails.filter(edit => edit.text).reduce((acc, edit) => acc + edit.contentLength, 0);
-    const totalTimeSpentTyping = analytics.normalEditDetails.length > 1 ? (analytics.normalEditDetails[analytics.normalEditDetails.length - 1].timestamp.getTime() - analytics.normalEditDetails[0].timestamp.getTime()) / 60000 : 0; // in minutes
+    const totalTimeSpentTyping = analytics.normalEditDetails.length > 1 ? (analytics.normalEditDetails[analytics.normalEditDetails.length - 1].startTimeStamp.getTime() - analytics.normalEditDetails[0].startTimeStamp.getTime()) / 60000 : 0; // in minutes
     analytics.averageTypingSpeed = totalTimeSpentTyping > 0 ? Math.round((totalCharactersTyped / 5) / totalTimeSpentTyping) : 0; // considering a word as 5 characters
 }
 
@@ -86,6 +89,7 @@ export function activate(context: vscode.ExtensionContext) {
 
 
     // Register the text editor change event
+    let times: Date[] = [];
     const textEditorChange = vscode.workspace.onDidChangeTextDocument((event) => {
         const filePath = event.document.fileName;
         const fileExtension = filePath.slice(filePath.lastIndexOf('.'));
@@ -99,7 +103,7 @@ export function activate(context: vscode.ExtensionContext) {
         if (edits.length === 0) { return; } // No edits to process
 
         const edit = edits[0]; // Considering only the first edit
-        const now = new Date(); // Current timestamp
+        times.push(new Date());
         let action: 'typing' | 'pasting' = 'typing'; // Default action
         let suspicious = false; // Default behavior
         let update = false; // Flag to update the analytics
@@ -117,7 +121,8 @@ export function activate(context: vscode.ExtensionContext) {
         }
 
         const editInfo: EditInfo = { // Create an object to store the edit details
-            timestamp: now,
+            startTimeStamp: times[0],
+            endTimeStamp: new Date(),
             contentLength: text.length,
             action,
             suspicious,
@@ -128,6 +133,7 @@ export function activate(context: vscode.ExtensionContext) {
         };
         editInfo.hash = computeHash(editInfo); // Compute the hash of the edit
         if (update) { // Update the analytics if necessary
+            times = []; // Reset the times array
             updateAnalytics(editInfo);
         }
 
