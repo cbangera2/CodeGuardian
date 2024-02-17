@@ -1,14 +1,18 @@
 "use client";
 import React, { useState } from 'react';
 
-export function StudentDropdown ({ students }: { students: string[] }) {
-    const [selectedStudent, setSelectedStudent] = useState('');
+export function StudentDropdown ({ students, setSelectedStudent }: { students: string[]; setSelectedStudent: (student: string) => void; }) {
+    const [selectedStudentLocal, setSelectedStudentLocal] = useState('');
 
-    // Your component logic and JSX go here
+    const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+        setSelectedStudentLocal(event.target.value);
+        setSelectedStudent(event.target.value);
+    };
+
     return (
         <select
-            value={selectedStudent}
-            onChange={(e) => setSelectedStudent(e.target.value)}
+            value={selectedStudentLocal}
+            onChange={handleChange}
             style={{ borderRadius: '8px' }}
             className="w-1/4 rounded-md"
         >
