@@ -48,8 +48,8 @@ export default function Home() {
                 <h3 class="display-8 fw-bolder text-white mb-2">Protecting Academic Integrity in Programming Education </h3>
                 <p class="lead fw-normal text-white-50 mb-4">The ultimate VSCode extension for students, educators, and employers to ensure originality and authenticity in code submissions. </p>
                 <div class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xl-start">
-                  <a class="btn btn-primary btn-lg px-4 me-sm-3" href="#features">Get Started</a>
-                  <a class="btn btn-outline-light btn-lg px-4" href="about">Learn More</a>
+                  <a class="btn btn-primary btn-lg px-4 me-sm-3" href="#features">More Info</a>
+                  <a class="btn btn-outline-light btn-lg px-4" href="about">Get Started</a>
                 </div>
               </div>
             </div>
@@ -116,47 +116,74 @@ export default function Home() {
         </div>
       </section>
       
-
       <section class="py-5" style="background-color:#fff;">
         <div class="container px-5">
-          <div class="col-lg-5" style="margin-left: -12px;">
-            <h1 style="font-size: 3em; font-weight: bold;">For Students</h1>
-            <h4 style="font-size: 1em; font-weight: normal;">
-              Easily submit assignments and projects while ensuring original work.
-            </h4>
-            <ul style="list-style-type:none; padding: 0;">
-              <li><strong>Enhance Learning Experience:</strong> Engage actively with assignments for a deeper understanding of programming concepts.</li>
-              <li><strong>Collaborate Authentically:</strong> Ensure equal authenticity and transparency in group projects.</li>
-              <li><strong>Easy Assignment Submission:</strong> Submit assignments directly through VSCode, simplifying your academic workload.</li>
-              <li><strong>Track Your Growth:</strong> Monitor your coding activity and progress, identifying strengths and areas for development.</li>
-            </ul>
+          <div class="row align-items-center">
+            <div class="col-lg-6">
+              <h1 style="font-size: 2.5em; font-weight: bold; margin-bottom: 0.5em;">For Students</h1>
+              <p style="font-size: 1.25em; margin-bottom: 1em;">Easily submit assignments and projects <br>while ensuring original work.</p>
+            </div>
+            <div class="col-lg-6">
+              <ul style="list-style: none; padding: 0;">
+                <li style="font-size: 1.25em; margin-bottom: 0.5em;"><strong>Enhance Learning Experience:</strong> Engage actively with assignments for a deeper understanding of programming concepts.</li>
+                <li style="font-size: 1.25em; margin-bottom: 0.5em;"><strong>Collaborate Authentically:</strong> Ensure equal authenticity and transparency in group projects.</li>
+                <li style="font-size: 1.25em; margin-bottom: 0.5em;"><strong>Easy Assignment Submission:</strong> Submit assignments directly through VSCode, simplifying your academic workload.</li>
+                <li style="font-size: 1.25em;"><strong>Track Your Growth:</strong> Monitor your coding activity and progress, identifying strengths and areas for development.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      <section class="py-5" style="background-color:#000;">
+        <div class="container px-5">
+          <div class="row align-items-center">
+            <div class="col-lg-6">
+              <h1 style="font-size: 2.5em; font-weight: bold; color: #fff; margin-bottom: 0.5em;">For Educators</h1>
+              <p style="font-size: 1.25em; color: #fff; margin-bottom: 1em;">Streamline the process of checking for plagiarism <br>and uphold academic standards with ease.</p>
+            </div>
+            <div class="col-lg-6">
+              <ul style="list-style: none; padding: 0;">
+                <li style="font-size: 1.25em; color: #fff; margin-bottom: 0.5em;"><strong>Maintain Integrity:</strong> Easily identify original student work and discourage dishonest practices.</li>
+                <li style="font-size: 1.25em; color: #fff; margin-bottom: 0.5em;"><strong>Automated Tools:</strong> Use advanced tools to detect inconsistencies and potential plagiarism in code submissions.</li>
+                <li style="font-size: 1.25em; color: #fff; margin-bottom: 0.5em;"><strong>Insightful Analytics:</strong> Gain valuable insights into coding trends and student progress.</li>
+                <li style="font-size: 1.25em; color: #fff;"><strong>Customizable Checks:</strong> Tailor the plagiarism checking process to fit the unique needs of your curriculum.</li>
+              </ul>
+            </div>
           </div>
         </div>
       </section>
       
 
-
-
-
-      <section class="py-5" style="background-color:#000; color:#fff;">
-        <div class="container px-5" >
-            <div class="col-lg-5" style="margin-left: -12px;">
-
-
-
-          <h1 style="font-size: 3em; font-weight: bold;">For Educators </h1>
-          <h4 style="font-size: 1em; font-weight: normal;">Streamline the process of checking for plagiarism and uphold academic standards with ease. </h4>
+      
+      <section class="py-5" style="background-color:#fff;">
+        <div class="container px-5">
+          <h1 style="font-size: 2em; font-weight: bold; text-align: center; margin-bottom: 1em;">What our users are saying</h1>
+          <div class="row justify-content-center">
+            <div class="col-md-4">
+              <blockquote class="blockquote text-center">
+                <p style="font-size: 1em; font-style: italic;">“CodeGuardian has been an invaluable tool for our institution. It has helped us maintain academic integrity while providing a seamless experience for both students and educators.”</p>
+                <footer class="blockquote-footer">Claudine Johnson, <cite title="Source Title">Dean of Academic Affairs</cite></footer>
+              </blockquote>
+            </div>
+            <div class="col-md-4">
+              <blockquote class="blockquote text-center">
+                <p style="font-size: 1em; font-style: italic;">“The features of CodeGuardian are unmatched in promoting honest work and have greatly simplified the grading process.”</p>
+                <footer class="blockquote-footer">Michael Smith, <cite title="Source Title">Professor of Computer Science</cite></footer>
+              </blockquote>
+            </div>
+            <div class="col-md-4">
+              <blockquote class="blockquote text-center">
+                <p style="font-size: 1em; font-style: italic;">“Thanks to CodeGuardian, we've seen a noticeable improvement in students' coding skills and originality in their work.”</p>
+                <footer class="blockquote-footer">Sam Bankman-Fried, <cite title="Source Title">Head of Technology Department</cite></footer>
+              </blockquote>
+            </div>
+          </div>
         </div>
-    </section>
-
-    <section class="py-5" style="background-color:#fff;">
-      <div class="container px-5">
-        <h1 style="font-size: 3em; font-weight: bold;">What our users are saying </h1>
-        <h4 style="font-size: 1em; font-weight: normal;">“CodeGuardian has been an invaluable tool for our institution. It has helped us maintain academic integrity while providing a seamless experience for both students and educators.” <br> - Sarah Johnson, Dean of Academic Affairs </h4>
-      </div>
-    </section>
+      </section>
+      
     
-    <div class="py-5 bg-light" style="background-color:#000;">
+    <!-- <div class="py-5 bg-light" style="background-color:#000;">
       <div class="container px-5 my-5">
         <div class="row gx-5 justify-content-center">
           <div class="col-lg-10 col-xl-7">
@@ -166,7 +193,7 @@ export default function Home() {
       </div>
     </div>
     </div>
-    
+     -->
     <footer class="bg-dark py-4 mt-auto">
       <div class="container px-5">
         <div class="row align-items-center justify-content-between flex-column flex-sm-row">
@@ -189,7 +216,6 @@ export default function Home() {
     <script src="js/scripts.js"></script>
 </body>
 </html>
-    
     
     
     </div>
