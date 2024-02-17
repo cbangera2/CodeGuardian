@@ -1,6 +1,7 @@
 import * as vscode from 'vscode';
 import * as fs from 'fs';
 import * as path from 'path';
+import * as os from 'os';
 
 import { JsonTreeDataProvider } from './jsonTreeDataProvider';
 import { computeHash, verifyCommand } from './verifyData';
@@ -15,9 +16,11 @@ interface EditInfo {
     lineNumber?: number;
     fileName?: string; // Optional field to store the
     hash: string;
+    username?: string;
 }
 
 interface SuspiciousEdit {
+    username?: string;
     startTimeStamp: Date;
     endTimeStamp?: Date;
     contentLength: number;
@@ -28,6 +31,7 @@ interface SuspiciousEdit {
 }
 
 interface Analytics {
+    username?: string;
     totalEdits: number;
     totalLinesEdited: number;
     suspiciousEdits: number;
@@ -38,6 +42,7 @@ interface Analytics {
 }
 
 let analytics: Analytics = {
+    username: os.userInfo().username,
     totalEdits: 0,
     totalLinesEdited: 0,
     suspiciousEdits: 0,
@@ -64,6 +69,7 @@ function updateAnalytics(editInfo: EditInfo) {
             lineNumber: editInfo.lineNumber,
             fileName: editInfo.fileName,
             hash: computeHash(editInfo),
+            username: editInfo.username,
         });
     }
     else {
@@ -132,6 +138,7 @@ export function activate(context: vscode.ExtensionContext) {
             lineNumber: edit.range.start.line,
             fileName: filePath,
             hash: '',
+            username: os.userInfo().username,
         };
         editInfo.hash = computeHash(editInfo); // Compute the hash of the edit
         if (update) { // Update the analytics if necessary
