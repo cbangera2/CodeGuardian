@@ -4,6 +4,7 @@
  */
 "use client";
 import React, { useState } from 'react';
+import axios from 'axios';
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { CardTitle, CardDescription, CardHeader, CardContent, Card } from "@/components/ui/card"
@@ -12,6 +13,26 @@ import { StudentDropdown } from "@/components/StudentDropdown"
 
 export function Dashboard() {
   const [selectedStudent, setSelectedStudent] = useState('');
+  const [selectedFile, setSelectedFile] = useState();
+  const [filename, setFilename] = useState('');
+
+  const handleFileChange = (event) => {
+    setSelectedFile(event.target.files[0]);
+    setFilename(event.target.files[0].name);
+  };
+
+  const handleUpload = async () => {
+    const formData = new FormData();
+    formData.append('file', selectedFile);
+
+    try {
+      const response = await axios.post('http://localhost:3001/upload', formData);
+      console.log(response.data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   return (
     <div className="flex flex-col w-full min-h-screen">
       <header className="flex items-center h-16 px-4 border-b shrink-0 md:px-6">
@@ -78,11 +99,16 @@ export function Dashboard() {
             </CardHeader>
             <CardContent className="flex justify-center p-10">
               <div className="grid gap-2 text-center">
-                <FileIcon className="mx-auto h-24 w-24 text-gray-300 dark:text-gray-700" />
+                
                 <label htmlFor="file-input" className="w-full">
+                  <FileIcon className="mx-auto h-24 w-24 text-gray-300 dark:text-gray-700" />
                   Select Files
-                  <input id="file-input" className="sr-only" type="file" />
+                  <input id="file-input" className="sr-only" type="file" onChange={handleFileChange}  />
                 </label>
+                <Button className="w-full" variant="ghost" onClick={handleUpload}>
+                Upload
+                </Button>
+                {filename && <p>Selected file: {filename}</p>}
                 <Button className="w-full" variant="ghost">
                   Add from GitHub
                 </Button>
