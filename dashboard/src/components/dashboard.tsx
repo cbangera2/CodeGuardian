@@ -9,6 +9,7 @@ import { Button } from "@/components/ui/button"
 import { CardTitle, CardDescription, CardHeader, CardContent, Card } from "@/components/ui/card"
 import { StudentDropdown } from "@/components/StudentDropdown"
 
+
 export function Dashboard() {
   const [selectedStudent, setSelectedStudent] = useState('');
   return (
@@ -22,7 +23,7 @@ export function Dashboard() {
           <Link className="font-bold" href="#">
             Student View
           </Link>
-          <Link className="text-gray-500 dark:text-gray-400 flex items-center" href="#">
+          <Link className="text-gray-500 dark:text-gray-400 flex items-center" href="/teacher-view">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="h-8 w-8 mr-2">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-5a2 2 0 00-2-2h-12a2 2 0 00-2 2v5a2 2 0 002 2z" />
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 11V7a4 4 0 118 0v4" />
@@ -78,10 +79,10 @@ export function Dashboard() {
             <CardContent className="flex justify-center p-10">
               <div className="grid gap-2 text-center">
                 <FileIcon className="mx-auto h-24 w-24 text-gray-300 dark:text-gray-700" />
-                <Button className="w-full" variant="outline">
+                <label htmlFor="file-input" className="w-full">
                   Select Files
-                  <input className="sr-only" type="file" />
-                </Button>
+                  <input id="file-input" className="sr-only" type="file" />
+                </label>
                 <Button className="w-full" variant="ghost">
                   Add from GitHub
                 </Button>
@@ -126,7 +127,7 @@ export function Dashboard() {
 }
 
 
-function FrameIcon(props) {
+function FrameIcon(props: any) {
   return (
     <svg
       {...props}
@@ -149,7 +150,7 @@ function FrameIcon(props) {
 }
 
 
-function FileIcon(props) {
+function FileIcon(props: any) {
   return (
     <svg
       {...props}

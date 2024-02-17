@@ -13,8 +13,8 @@ export function StudentDropdown ({ students, setSelectedStudent }: { students: s
         <select
             value={selectedStudentLocal}
             onChange={handleChange}
-            style={{ borderRadius: '8px' }}
             className="w-1/4 rounded-md"
+            title="Select a project"
         >
             <option value="">Select a project</option>
             {students.map((student, index) => (
