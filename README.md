@@ -18,3 +18,21 @@ This helps:
 - Employers: Confidently hire graduates with genuine coding skills, not AI-ghostwritten scripts.
 
 The market for CodeGuardian is vast and growing, as coding bootcamps, universities, and online learning platforms all face the challenge of maintaining academic integrity in the face of advancing AI. The future of coding education is at a crossroads, and by investing in CodeGuardian, you're not just funding a product; you're championing a cause. We invite you to join us in this mission to build a future where genuine coding talent is nurtured, valued, and shines brighter than ever. Invest in CodeGuardian, and let's ensure that academic integrity and genuine skill development remain at the heart of programming education.
+
+<img width="1360" alt="image" src="https://github.com/cbangera2/CodeGuardian/assets/18430740/1c33c2c8-f0b8-437e-8001-e5ddc910caba">
+
+<img width="1365" alt="image" src="https://github.com/cbangera2/CodeGuardian/assets/18430740/22b9d1ff-8eb4-475c-9e2c-9c73bd448930">
+
+
+<img width="1365" alt="image" src="https://github.com/cbangera2/CodeGuardian/assets/18430740/278ed69a-2cbd-4860-b921-a2bdddb1a43a">
+
+
+<img width="1348" alt="image" src="https://github.com/cbangera2/CodeGuardian/assets/18430740/d9bebf01-5277-4f32-a247-f1bf5e506d4d">
+
+<img width="1364" alt="image" src="https://github.com/cbangera2/CodeGuardian/assets/18430740/d5b09b8b-7060-437b-acfe-e8a2980bbe6d">
+
+<img width="1511" alt="image" src="https://github.com/cbangera2/CodeGuardian/assets/18430740/a828be64-9420-4fb5-b6a9-39c3e26e8169">
+
+
+
+
