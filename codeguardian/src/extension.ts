@@ -48,7 +48,7 @@ let analytics: Analytics = {
 
 const monitoredFileTypes = ['.js', '.cpp'];
 const suspiciousBehaviorThresholds = {
-    copyPasteSize: 2, // Characters
+    copyPasteSize: 3, // Characters (account for {, }, and \n)
     typingSpeed: 1000, // Milliseconds
 };
 
@@ -110,12 +110,14 @@ export function activate(context: vscode.ExtensionContext) {
         let text = edit.text; // Default text content of the edit
         let currentLine = event.document.lineAt(edit.range.start.line); // Get the current line
 
-        if (edit.text.length >= suspiciousBehaviorThresholds.copyPasteSize) {
+        const trimmedText = edit.text.replace(/\s/g, ''); // Remove spaces and new line characters
+        if (trimmedText.length >= suspiciousBehaviorThresholds.copyPasteSize) {
             action = 'pasting';
             suspicious = true;
             update = true;
-        } else if (edit.text === "\n") { // If the edit is a new line
+        } else if (edit.text.split(' ')[0] === "\n") { // If the edit is a new line
             update = true;
+            currentLine = event.document.lineAt(edit.range.start.line - 1); // Get the previous line
             analytics.totalLinesEdited += 1;
             text = currentLine.text;
         }
