@@ -1,0 +1,118 @@
+{
+  "totalEdits": 92,
+  "totalLinesEdited": 9,
+  "suspiciousEdits": 1,
+  "averageTypingSpeed": 19,
+  "suspiciousEditDetails": [
+    {
+      "startTimeStamp": "2024-02-17T09:12:13.412Z",
+      "endTimeStamp": "2024-02-17T09:12:35.048Z",
+      "contentLength": 415,
+      "text": "// Here is a comment\n// This is another comment that\nvector<int> twoSum(){\n    vector<int> result;\n    result.push_back(1);\n    result.push_back(2);\n    return result;\n    int i =0;\n    int j =1;\n    int k =3;\n    return result\n    int l = i+k+l;\n    // This might be a problem with\n    if we have twoSum() {\n        return result;\n    }\n    Okay;\n    //Here is a comment\n}     } int i =0; int k=3; int j=1; for int i=0;",
+      "lineNumber": 4,
+      "fileName": "/Users/cbang/Documents/TreeHacks/test.cpp",
+      "hash": "162f3fa5605aa82df763ab8f87c0ad6cd163c6e21993f9cdb457ac09fa7b22ef"
+    }
+  ],
+  "normalEditDetails": [
+    {
+      "startTimeStamp": "2024-02-17T09:11:47.686Z",
+      "endTimeStamp": "2024-02-17T09:11:52.591Z",
+      "contentLength": 20,
+      "action": "typing",
+      "suspicious": false,
+      "text": "// Here is some code",
+      "lineNumber": 1,
+      "fileName": "/Users/cbang/Documents/TreeHacks/test.cpp",
+      "hash": "35a8b57641a8bfca78d05a796cbd631e0eef6a56f330f081a65e86efe7316b84"
+    },
+    {
+      "startTimeStamp": "2024-02-17T09:11:56.253Z",
+      "endTimeStamp": "2024-02-17T09:11:56.869Z",
+      "contentLength": 12,
+      "action": "typing too fast",
+      "suspicious": true,
+      "text": "// More core",
+      "lineNumber": 2,
+      "fileName": "/Users/cbang/Documents/TreeHacks/test.cpp",
+      "hash": "d2a004f9ce057e73b61b6d7aefc8e437c594af7d62ac8168c5f34470c10afd40"
+    },
+    {
+      "startTimeStamp": "2024-02-17T09:11:59.893Z",
+      "endTimeStamp": "2024-02-17T09:12:00.271Z",
+      "contentLength": 1,
+      "action": "typing",
+      "suspicious": false,
+      "text": "{",
+      "lineNumber": 3,
+      "fileName": "/Users/cbang/Documents/TreeHacks/test.cpp",
+      "hash": "136c9c98845ecc224a84f2cea38dc5d08bf414c597a57ed3b69755a1730c7b79"
+    },
+    {
+      "startTimeStamp": "2024-02-17T09:12:16.618Z",
+      "endTimeStamp": "2024-02-17T09:12:16.618Z",
+      "contentLength": 5,
+      "action": "typing too fast",
+      "suspicious": true,
+      "text": "    }",
+      "lineNumber": 24,
+      "fileName": "/Users/cbang/Documents/TreeHacks/test.cpp",
+      "hash": "ac7ebb0ed0d30ea35a0a23e3b0220a0d5b532f06ba3d21d9c6e0ce431f2258c8"
+    },
+    {
+      "startTimeStamp": "2024-02-17T09:12:17.699Z",
+      "endTimeStamp": "2024-02-17T09:12:21.073Z",
+      "contentLength": 1,
+      "action": "typing",
+      "suspicious": false,
+      "text": "}",
+      "lineNumber": 25,
+      "fileName": "/Users/cbang/Documents/TreeHacks/test.cpp",
+      "hash": "ce1ece4212f0416824d9d65a712d3b12e5199ce7ecf8e6ceaf68cc768394cf32"
+    },
+    {
+      "startTimeStamp": "2024-02-17T09:12:21.702Z",
+      "endTimeStamp": "2024-02-17T09:12:23.312Z",
+      "contentLength": 9,
+      "action": "typing too fast",
+      "suspicious": true,
+      "text": "int i =0;",
+      "lineNumber": 26,
+      "fileName": "/Users/cbang/Documents/TreeHacks/test.cpp",
+      "hash": "bd1144d7de5be10882719f07c4a5dd2045fdef5f64f1d57ba1d0516719b0823a"
+    },
+    {
+      "startTimeStamp": "2024-02-17T09:12:26.223Z",
+      "endTimeStamp": "2024-02-17T09:12:26.223Z",
+      "contentLength": 8,
+      "action": "typing too fast",
+      "suspicious": true,
+      "text": "int j=1;",
+      "lineNumber": 27,
+      "fileName": "/Users/cbang/Documents/TreeHacks/test.cpp",
+      "hash": "decc9b70c3ee757b32398f48a37f5f0f344e802de3c3a2f283702016838d4cb0"
+    },
+    {
+      "startTimeStamp": "2024-02-17T09:12:27.483Z",
+      "endTimeStamp": "2024-02-17T09:12:33.826Z",
+      "contentLength": 8,
+      "action": "typing",
+      "suspicious": false,
+      "text": "int k=3;",
+      "lineNumber": 28,
+      "fileName": "/Users/cbang/Documents/TreeHacks/test.cpp",
+      "hash": "976d3077d3d2c46b93efa2f205279110b6e8e7872337dd5b8ebf0e509f975fcf"
+    },
+    {
+      "startTimeStamp": "2024-02-17T09:12:35.048Z",
+      "endTimeStamp": "2024-02-17T09:12:35.048Z",
+      "contentLength": 12,
+      "action": "typing too fast",
+      "suspicious": true,
+      "text": "for int i=0;",
+      "lineNumber": 29,
+      "fileName": "/Users/cbang/Documents/TreeHacks/test.cpp",
+      "hash": "dcdab1f8428acd73caf66615612aa3fbbbb539e6d01b15d161632f95711f6a17"
+    }
+  ]
+}
