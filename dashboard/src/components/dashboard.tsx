@@ -5,6 +5,7 @@
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { CardTitle, CardDescription, CardHeader, CardContent, Card } from "@/components/ui/card"
+import { StudentDropdown } from "@/components/StudentDropdown"
 
 export function Dashboard() {
   return (
@@ -16,13 +17,21 @@ export function Dashboard() {
         </Link>
         <nav className="hidden font-medium sm:flex flex-row items-center gap-5 text-sm lg:gap-6">
           <Link className="font-bold" href="#">
-            Code Metrics
+            Student View
+          </Link>
+          <Link className="text-gray-500 dark:text-gray-400 flex items-center" href="#">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="h-8 w-8 mr-2">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-5a2 2 0 00-2-2h-12a2 2 0 00-2 2v5a2 2 0 002 2z" />
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 11V7a4 4 0 118 0v4" />
+            </svg>
+            Teacher View
+            
           </Link>
           <Link className="text-gray-500 dark:text-gray-400" href="#">
-            Plagiarism Detection
+            Class Information
           </Link>
           <Link className="text-gray-500 dark:text-gray-400" href="#">
-            User Management
+            Settings
           </Link>
         </nav>
         <div className="flex items-center w-full gap-4 md:ml-auto md:gap-2 lg:gap-4">
@@ -48,7 +57,13 @@ export function Dashboard() {
           <p className="text-gray-500 md:w-[80%] dark:text-gray-400">
             Analyze and compare the performance of different students.
           </p>
+          <div></div>
+          <div></div>
         </div>
+        
+        <p className="font-semibold text-2xl">Welcome Bob</p>
+
+        <StudentDropdown students={['Project 1', 'Project 2', 'Project 3']} />
         <div className="grid gap-6 md:grid-cols-2">
           <Card>
             <CardHeader>
@@ -75,9 +90,9 @@ export function Dashboard() {
             </CardHeader>
             <CardContent className="flex flex-col gap-4">
               <div className="grid grid-cols-3 gap-4 text-sm">
+                <div></div>
                 <div>Submission 1</div>
                 <div>Submission 2</div>
-                <div>Submission 3</div>
                 <div className="font-semibold">Lines of Code</div>
                 <div>120</div>
                 <div>95</div>
@@ -87,30 +102,14 @@ export function Dashboard() {
                 <div className="font-semibold">Quality Score</div>
                 <div>85%</div>
                 <div>92%</div>
+                <div className="font-semibold">Characters Per Minute</div>
+                <div>26</div>
+                <div>42</div>
               </div>
               <Button>View Metrics</Button>
             </CardContent>
           </Card>
-          <Card>
-            <CardHeader>
-              <CardTitle>Suspicious Sections</CardTitle>
-              <CardDescription>Identify potentially plagiarized or suspicious code sections.</CardDescription>
-            </CardHeader>
-            <CardContent className="flex flex-col gap-4">
-              <div className="grid grid-cols-3 gap-4 text-sm">
-                <div>Section 1</div>
-                <div>Section 2</div>
-                <div>Section 3</div>
-                <div className="font-semibold">Plagiarism Likelihood</div>
-                <div>High</div>
-                <div>Medium</div>
-                <div className="font-semibold">Suspicious Patterns</div>
-                <div>Yes</div>
-                <div>No</div>
-              </div>
-              <Button>View Suspicious Sections</Button>
-            </CardContent>
-          </Card>
+
         </div>
       </main>
     </div>
