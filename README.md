@@ -19,17 +19,25 @@ This helps:
 
 The market for CodeGuardian is vast and growing, as coding bootcamps, universities, and online learning platforms all face the challenge of maintaining academic integrity in the face of advancing AI. The future of coding education is at a crossroads, and by investing in CodeGuardian, you're not just funding a product; you're championing a cause. We invite you to join us in this mission to build a future where genuine coding talent is nurtured, valued, and shines brighter than ever. Invest in CodeGuardian, and let's ensure that academic integrity and genuine skill development remain at the heart of programming education.
 
-<img width="1360" alt="image" src="https://github.com/cbangera2/CodeGuardian/assets/18430740/1c33c2c8-f0b8-437e-8001-e5ddc910caba">
+<img width="1365" alt="image" src="https://github.com/cbangera2/CodeGuardian/assets/18430740/41bd76b3-b51f-49c3-b65d-a7f07c415766">
 
-<img width="1365" alt="image" src="https://github.com/cbangera2/CodeGuardian/assets/18430740/22b9d1ff-8eb4-475c-9e2c-9c73bd448930">
+<img width="1365" alt="image" src="https://github.com/cbangera2/CodeGuardian/assets/18430740/9d8e71c8-693c-4571-8ab8-9961ebf5d4e5">
+
+<img width="1362" alt="image" src="https://github.com/cbangera2/CodeGuardian/assets/18430740/642083f4-5355-494e-a9a6-91ed09b95a97">
+
+<img width="1365" alt="image" src="https://github.com/cbangera2/CodeGuardian/assets/18430740/a861e16f-2519-4a8a-9f76-2b1495e48b34">
 
 
-<img width="1365" alt="image" src="https://github.com/cbangera2/CodeGuardian/assets/18430740/278ed69a-2cbd-4860-b921-a2bdddb1a43a">
+<img width="1364" alt="image" src="https://github.com/cbangera2/CodeGuardian/assets/18430740/da591cb7-b020-4c82-8f0b-862fb4ee5b8e">
 
+<img width="1364" alt="image" src="https://github.com/cbangera2/CodeGuardian/assets/18430740/355928c8-6e64-48fc-a169-f13e9ab9b083">
 
-<img width="1348" alt="image" src="https://github.com/cbangera2/CodeGuardian/assets/18430740/d9bebf01-5277-4f32-a247-f1bf5e506d4d">
+<img width="1365" alt="image" src="https://github.com/cbangera2/CodeGuardian/assets/18430740/13c896c0-1db3-4ed6-a9d1-842f3cd4f385">
 
-<img width="1364" alt="image" src="https://github.com/cbangera2/CodeGuardian/assets/18430740/d5b09b8b-7060-437b-acfe-e8a2980bbe6d">
+<img width="1364" alt="image" src="https://github.com/cbangera2/CodeGuardian/assets/18430740/44ce943b-9412-4578-bb18-db6a9c656b25">
+
+<img width="1366" alt="image" src="https://github.com/cbangera2/CodeGuardian/assets/18430740/cdae3e72-9f8d-454b-97e5-720eb4c37c9b">
+
 
 <img width="1511" alt="image" src="https://github.com/cbangera2/CodeGuardian/assets/18430740/a828be64-9420-4fb5-b6a9-39c3e26e8169">
 
