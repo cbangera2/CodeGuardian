@@ -10,7 +10,6 @@ import { Button } from "@/components/ui/button"
 import { CardTitle, CardDescription, CardHeader, CardContent, Card } from "@/components/ui/card"
 import { StudentDropdown } from "@/app/student-view/StudentDropdown"
 
-
 export function Dashboard() {
   const [selectedStudent, setSelectedStudent] = useState('');
   const [selectedFile, setSelectedFile] = useState();
@@ -30,8 +29,6 @@ export function Dashboard() {
       console.log(response.data);
     } catch (error) {
       console.error(error);
-    } finally {
-      window.location.reload();
     }
   };
 
