@@ -14,6 +14,7 @@ type Log = {
     text: string;
     lineNumber: number;
     fileName: string;
+    username: string;
     hash: string;
 };
 
@@ -28,11 +29,26 @@ function convertJsonToLog(jsonData: any): Log {
         text: jsonData.text || "",
         lineNumber: jsonData.lineNumber || 0,
         fileName: jsonData.fileName || "",
+        username: jsonData.username || "",
         hash: jsonData.hash || "",
     };
 }
 
-export default function AllSectionsDialog({ jsonLogs }: { jsonLogs: Log[] }) {
+//"SELECT * FROM json_data"
+async function fetchCustomQuery(query: string): Promise<Log[]> {
+    const response = await fetch('http://localhost:3002/query', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ query }),
+    });
+    const data = await response.json();
+    return data;
+}
+
+
+export default function AllSectionsDialog({ jsonLogs }: { jsonLogs: any }) {
 
     return (
         <Dialog>

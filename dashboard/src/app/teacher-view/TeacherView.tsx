@@ -137,13 +137,13 @@ export function TeacherView() {
           </Link>
           <nav className="hidden font-medium sm:flex flex-row items-center gap-5 text-sm lg:gap-6">
             <Link className="text-gray-500 dark:text-gray-400" href="/">
-              Student
+              Student View
             </Link>
             <Link className="font-bold" href="#">
-              Teacher
+              Teacher View
             </Link>
-            <Link className="text-gray-500 dark:text-gray-400" href="#">
-              Class
+            <Link className="text-gray-500 dark:text-gray-400" href="/class-info">
+              Class Information
             </Link>
             <Link className="text-gray-500 dark:text-gray-400" href="#">
               Settings
@@ -223,9 +223,6 @@ export function TeacherView() {
                     Select Files
                     <input className="sr-only" type="file" />
                   </Button>
-                  <Button className="w-full" variant="ghost">
-                    Add from GitHub
-                  </Button>
                 </div>
               </CardContent>
             </Card>
@@ -253,7 +250,6 @@ export function TeacherView() {
                   <div>12</div>
                   <div>78%</div>
                 </div>
-                <Button>View Metrics</Button>
               </CardContent>
             </Card>
           </div>

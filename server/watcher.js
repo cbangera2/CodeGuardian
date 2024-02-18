@@ -4,7 +4,7 @@ const pool = new Pool({
     host: 'localhost',
     database: 'treehack',
     password: 'treehacks',
-    port: 5433,
+    port: 5432,
 });
 
 const fs = require('fs');
@@ -33,9 +33,9 @@ watcher.on('add', path => {
               contentLength, 
               text, 
               lineNumber, 
-              username, 
               fileName, 
-              hash
+              hash,
+              username
             ) VALUES($1, $2, $3, $4, $5, $6, $7, $8)
             ON CONFLICT (hash) DO NOTHING;`; // Assuming hash is unique and primary key, ignore duplicates
                     const values = [
@@ -44,9 +44,9 @@ watcher.on('add', path => {
                         detail.contentLength,
                         detail.text,
                         detail.lineNumber,
-                        detail.username,
                         detail.fileName,
-                        detail.hash
+                        detail.hash,
+                        detail.username
                     ];
 
                     pool.query(query, values, (err, res) => {
