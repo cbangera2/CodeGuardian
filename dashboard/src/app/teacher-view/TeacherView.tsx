@@ -253,9 +253,10 @@ export function TeacherView() {
                   <div className="font-semibold">Complexity</div>
                   <div className="font-semibold">Quality Score</div>
                   {usernames.map((username, index) => {
-                    const studentMetric = jsonMetrics.find((metric) => metric.username === username);
-                    const studentMetrics = convertJsonToMetric(studentMetric) || { username: '', totaledits: 0, suspiciousedits: 0, totallinesedited: 0, averagetypingspeed: 0 };
-                    const percentage = studentMetrics.totaledits !== 0 ? (studentMetrics.totaledits - studentMetrics.suspiciousedits) / studentMetrics.totaledits * 100 : 0;
+                    const studentMetric = jsonMetrics.find((metric: Metric) => metric.username === username);
+                    const studentMetrics = convertJsonToMetric(studentMetric) || { username: '', totaledits: 0, suspiciousedits: 0, totallinesedited: 0 };
+                    const percentage = (studentMetrics.totaledits - studentMetrics.suspiciousedits) / studentMetrics.totaledits * 100;
+
                     return (
                       <div key={index}>
                         <div className="font-semibold">{ username }</div>
