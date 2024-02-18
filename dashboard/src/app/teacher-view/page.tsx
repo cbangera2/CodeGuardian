@@ -1,4 +1,4 @@
-import { TeacherView } from "@/components/TeacherView";
+import { TeacherView } from "@/app/teacher-view/TeacherView";
 
 export default function Home() {
   return (
