@@ -27,7 +27,7 @@ export function Dashboard() {
 
     const sql = 'SELECT * FROM json_data'; // Replace with your SQL command
 
-  axios.post<any>('http://localhost:3002/query', { sql })
+    axios.post<any>('http://localhost:3002/query', { query: sql })
     .then(response => {
       console.log(response.data);
     })

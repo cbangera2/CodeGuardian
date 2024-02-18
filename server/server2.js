@@ -3,16 +3,21 @@ const { Pool } = require('pg');
 const multer = require('multer');
 const fs = require('fs');
 const path = require('path');
+const cors = require('cors');
+
 
 const app = express();
 const upload = multer({ dest: 'uploads/' });
+
+app.use(cors());
+
 
 const pool = new Pool({
     user: 'postgres',
     host: 'localhost',
     database: 'treehack',
     password: 'treehacks',
-    port: 5433,
+    port: 5432,
 });
 
 // Middleware
@@ -53,7 +58,7 @@ app.post('/query', async (req, res) => {
 });
 
 // Server start
-const port = 3001; // Updated to avoid conflict and match file upload server port
+const port = 3002; // Updated to avoid conflict and match file upload server port
 app.listen(port, () => {
     console.log(`Server running on http://localhost:${port}`);
 });
