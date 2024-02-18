@@ -96,7 +96,7 @@ export function TeacherView() {
         }
       })();
 
-      let fetchedJsonMetrics: any = [] // Initialize the fetchedUsernames variable with an empty array
+      let fetchedJsonMetrics: any = []; // Initialize the fetchedUsernames variable with an empty array
       const sqlUsername = 'SELECT * FROM user_edit_summary'; // Replace with your SQL command
       await (async () => {
         try {
@@ -121,7 +121,6 @@ export function TeacherView() {
   }, []);
 
   const [filteredSections, setFilteredSections] = useState<Log[]>([]);
-
 
   useEffect(() => {
     if (usernames.length > 0 && !selectedUsername) {
@@ -254,12 +253,13 @@ export function TeacherView() {
                   <div className="font-semibold">Complexity</div>
                   <div className="font-semibold">Quality Score</div>
                   {usernames.map((username, index) => {
-                    const studentMetrics = convertJsonToMetric(jsonMetrics.find((metric : Metric) => metric.username === username)) || { username: '' };
+                    const studentMetric = jsonMetrics.find((metric: Metric) => metric.username === username);
+                    const studentMetrics = convertJsonToMetric(studentMetric) || { username: '', totaledits: 0, suspiciousedits: 0, totallinesedited: 0 };
                     const percentage = (studentMetrics.totaledits - studentMetrics.suspiciousedits) / studentMetrics.totaledits * 100;
 
                     return (
                       <div key={index}>
-                        <div className="font-semibold">{ }</div>
+                        <div className="font-semibold">{ username }</div>
                         <div>{studentMetrics.totaledits}</div>
                         <div>{percentage}%</div>
                         <div>{studentMetrics.totallinesedited}</div>
