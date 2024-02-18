@@ -40,7 +40,7 @@ export default function AllSectionsDialog({ jsonLogs }: { jsonLogs: any }) {
             <Button className="mt-3 w-full">View All Sections</Button>
           </DialogTrigger>
           <DialogContent>
-                <h2>All Species Details</h2>
+                <h2>All Sections Details</h2>
                 {jsonLogs.map((innerArray, outerIndex) => (
                     <div key={outerIndex}>
                         <p>Array Order: {outerIndex + 1}</p>
