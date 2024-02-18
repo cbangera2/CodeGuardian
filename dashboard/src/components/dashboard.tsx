@@ -45,10 +45,6 @@ export function Dashboard() {
             Student View
           </Link>
           <Link className="text-gray-500 dark:text-gray-400 flex items-center" href="/teacher-view">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="h-8 w-8 mr-2">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-5a2 2 0 00-2-2h-12a2 2 0 00-2 2v5a2 2 0 002 2z" />
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 11V7a4 4 0 118 0v4" />
-            </svg>
             Teacher View
             
           </Link>
@@ -88,7 +84,7 @@ export function Dashboard() {
         
         <p className="font-semibold text-2xl">Welcome, Bob:</p>
 
-        <StudentDropdown students={['Project 1', 'Project 2', 'Project 3']} setSelectedStudent={setSelectedStudent} />
+        <StudentDropdown students={['Project 1']} setSelectedStudent={setSelectedStudent} />
 
         {selectedStudent ? (
         <div className="grid gap-6 md:grid-cols-2">
@@ -110,9 +106,7 @@ export function Dashboard() {
                 Upload
                 </Button>
                 {filename && <p>Selected file: {filename}</p>}
-                <Button className="w-full" variant="ghost">
-                  Add from GitHub
-                </Button>
+
               </div>
             </CardContent>
           </Card>
@@ -139,7 +133,6 @@ export function Dashboard() {
                 <div>26</div>
                 <div>42</div>
               </div>
-              <Button>View Metrics</Button>
             </CardContent>
           </Card>
 

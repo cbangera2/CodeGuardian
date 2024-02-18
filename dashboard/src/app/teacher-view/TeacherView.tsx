@@ -43,13 +43,13 @@ export function TeacherView() {
           </Link>
           <nav className="hidden font-medium sm:flex flex-row items-center gap-5 text-sm lg:gap-6">
             <Link className="text-gray-500 dark:text-gray-400" href="/">
-              Student
+              Student View
             </Link>
             <Link className="font-bold" href="#">
-              Teacher
+              Teacher View
             </Link>
-            <Link className="text-gray-500 dark:text-gray-400" href="#">
-              Class
+            <Link className="text-gray-500 dark:text-gray-400" href="/class-info">
+              Class Information
             </Link>
             <Link className="text-gray-500 dark:text-gray-400" href="#">
               Settings
@@ -99,9 +99,9 @@ export function TeacherView() {
                   >
                     <code>
                       {`
-                                                                                                                                                                                                                                                                                                                                                                          // Suspicious code section here
-                                                                                                                                                                                                                                                                                                                                                                          function suspiciousFunction() {
-                                                                                                                                                                                                                                                                                                                                                                            return 'Suspicious behavior detected';
+                                                                                                                                                                                                                                                                                                                                                                          // StackOverflow Code
+                                                                                                                                                                                                                                                                                                                                                                          function twoSum() {
+                                                                                                                                                                                                                                                                                                                                                                            return 'twoSum';
                                                                                                                                                                                                                                                                                                                                                                           }
                                                                                                                                                                                                                                                                                                                                                                         `}
                     </code>
@@ -121,9 +121,9 @@ export function TeacherView() {
                   >
                     <code>
                       {`
-                                                                                                                                                                                                                                                                                                                                                                          // Suspicious code section here
-                                                                                                                                                                                                                                                                                                                                                                          function suspiciousFunction() {
-                                                                                                                                                                                                                                                                                                                                                                            return 'Suspicious behavior detected';
+                                                                                                                                                                                                                                                                                                                                                                          // ChatGPT Generated Code
+                                                                                                                                                                                                                                                                                                                                                                          function helloFunction() {
+                                                                                                                                                                                                                                                                                                                                                                            return 'hello';
                                                                                                                                                                                                                                                                                                                                                                           }
                                                                                                                                                                                                                                                                                                                                                                         `}
                     </code>
@@ -151,6 +151,27 @@ export function TeacherView() {
                     </code>
                   </div>
                 </div>
+
+                <div>
+                  <div>Section 4</div>
+                  <div className="font-semibold">Plagiarism Likelihood</div>
+                  <div>Low</div>
+                  <div className="font-semibold">Suspicious Patterns</div>
+                  <div
+                    style={{
+                      backgroundColor: "red",
+                      borderRadius: "5px",
+                      padding: "10px",
+                    }}
+                  >
+                    <code>
+                      {`
+                                                                                                                                                                                                                                                                                                                                                                          // AI autocomplete code comment
+                                                                                                                                                                                                                                                                                                                                                                        `}
+                    </code>
+                  </div>
+                </div>
+
               </div>
               <div className="absolute inset-y-center left-2 flex items-center">
                 <button className="rounded-full bg-gray-200 p-3" onClick={undefined}>
@@ -177,9 +198,6 @@ export function TeacherView() {
                   <Button className="w-full" variant="outline">
                     Select Files
                     <input className="sr-only" type="file" />
-                  </Button>
-                  <Button className="w-full" variant="ghost">
-                    Add from GitHub
                   </Button>
                 </div>
               </CardContent>
@@ -208,7 +226,6 @@ export function TeacherView() {
                   <div>12</div>
                   <div>78%</div>
                 </div>
-                <Button>View Metrics</Button>
               </CardContent>
             </Card>
           </div>
