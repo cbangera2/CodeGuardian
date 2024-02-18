@@ -52,7 +52,7 @@ export function Dashboard() {
             Teacher View
             
           </Link>
-          <Link className="text-gray-500 dark:text-gray-400" href="#">
+          <Link className="text-gray-500 dark:text-gray-400" href="/class-info">
             Class Information
           </Link>
           <Link className="text-gray-500 dark:text-gray-400" href="#">

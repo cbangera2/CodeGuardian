@@ -27,7 +27,7 @@ export function ClassStats() {
             </div>
           </div>
         </div>
-        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4 max-w-6xl w-full mx-auto">
+        <div className="grid gap-6 md:grid-cols- xl:grid-cols-4 max-w-6xl w-full mx-auto">
           <Card>
             <CardHeader className="flex flex-row items-center border-b">
               <CardTitle>Students</CardTitle>
