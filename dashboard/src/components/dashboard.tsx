@@ -103,6 +103,7 @@ export function Dashboard() {
                 <label htmlFor="file-input" className="w-full">
                   <FileIcon className="mx-auto h-24 w-24 text-gray-300 dark:text-gray-700" />
                   Select Files
+
                   <input id="file-input" className="sr-only" type="file" onChange={handleFileChange}  />
                 </label>
                 <Button className="w-full" variant="ghost" onClick={handleUpload}>

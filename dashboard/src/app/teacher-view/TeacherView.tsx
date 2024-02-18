@@ -6,9 +6,11 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { CardTitle, CardDescription, CardHeader, CardContent, Card } from "@/components/ui/card"
 import AllSectionsDialog from "./AllSectionsDialog";
+import { ClassStats } from "@/components/ClassStats";
 
 export function TeacherView() {
-  const jsonLogs = [[{
+  const jsonLogs = [
+    [{
   "startTimeStamp": "2024-02-17T09:12:27.483Z",
   "endTimeStamp": "2024-02-17T09:12:33.826Z",
   "contentLength": 8,
@@ -18,7 +20,8 @@ export function TeacherView() {
   "lineNumber": 28,
   "fileName": "/Users/cbang/Documents/TreeHacks/test.cpp",
   "hash": "976d3077d3d2c46b93efa2f205279110b6e8e7872337dd5b8ebf0e509f975fcf"
-}],[
+}],
+[
 {
   "startTimeStamp": "2024-02-17T09:12:35.048Z",
   "endTimeStamp": "2024-02-17T09:12:35.048Z",
@@ -52,7 +55,9 @@ export function TeacherView() {
               Settings
             </Link>
           </nav>
+          
           <div className="flex items-center w-full gap-4 md:ml-auto md:gap-2 lg:gap-4">
+
             <Button className="rounded-full ml-auto" size="icon" variant="ghost">
               <img
                 alt="Avatar"
@@ -69,7 +74,10 @@ export function TeacherView() {
             </Button>
           </div>
         </header>
-        <main className="flex flex-1 flex-col gap-4 p-4 md:gap-8 md:p-10">
+        <div >
+            <ClassStats />
+      </div>
+        <main className="flex flex-1 flex-col gap-4 max-w-6xl w-full mx-auto ">
           <Card className="w-full">
             <CardHeader>
               <CardTitle>Suspicious Sections</CardTitle>
@@ -206,6 +214,7 @@ export function TeacherView() {
           </div>
         </main>
       </div>
+      
     </>
   )
 }

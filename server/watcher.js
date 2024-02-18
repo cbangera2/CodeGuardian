@@ -4,7 +4,7 @@ const pool = new Pool({
     host: 'localhost',
     database: 'treehack',
     password: 'treehacks',
-    port: 5432,
+    port: 5433,
 });
 
 const fs = require('fs');
