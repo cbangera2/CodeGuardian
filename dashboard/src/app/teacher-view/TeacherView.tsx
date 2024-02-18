@@ -16,7 +16,7 @@ type Log = {
   startTimeStamp: string;
   endTimeStamp: string;
   contentLength: number;
-  //action: string;
+  action: string;
   text: string;
   lineNumber: number;
   fileName: string;
@@ -30,7 +30,7 @@ function convertJsonToLog(jsonData: any): Log {
       startTimeStamp: jsonData.startTimeStamp || "",
       endTimeStamp: jsonData.endTimeStamp || "",
       contentLength: jsonData.contentLength || 0,
-      //action: jsonData.action || "",
+      action: jsonData.action || "",
       text: jsonData.text || "",
       lineNumber: jsonData.lineNumber || 0,
       fileName: jsonData.fileName || "",
