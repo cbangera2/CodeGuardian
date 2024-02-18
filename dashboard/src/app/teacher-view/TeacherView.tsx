@@ -43,13 +43,13 @@ export function TeacherView() {
           </Link>
           <nav className="hidden font-medium sm:flex flex-row items-center gap-5 text-sm lg:gap-6">
             <Link className="text-gray-500 dark:text-gray-400" href="/">
-              Student View
+              Student
             </Link>
             <Link className="font-bold" href="#">
-              Teacher View
+              Teacher
             </Link>
             <Link className="text-gray-500 dark:text-gray-400" href="#">
-              Class Information
+              Class
             </Link>
             <Link className="text-gray-500 dark:text-gray-400" href="#">
               Settings
