@@ -8,7 +8,7 @@ import axios from 'axios';
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { CardTitle, CardDescription, CardHeader, CardContent, Card } from "@/components/ui/card"
-import { StudentDropdown } from "@/components/StudentDropdown"
+import { StudentDropdown } from "@/app/student-view/StudentDropdown"
 
 
 export function Dashboard() {

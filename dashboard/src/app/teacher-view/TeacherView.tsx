@@ -5,8 +5,31 @@
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { CardTitle, CardDescription, CardHeader, CardContent, Card } from "@/components/ui/card"
+import AllSectionsDialog from "./AllSectionsDialog";
 
 export function TeacherView() {
+  const jsonLogs = [[{
+  "startTimeStamp": "2024-02-17T09:12:27.483Z",
+  "endTimeStamp": "2024-02-17T09:12:33.826Z",
+  "contentLength": 8,
+  "action": "typing",
+  "suspicious": false,
+  "text": "int k=3;",
+  "lineNumber": 28,
+  "fileName": "/Users/cbang/Documents/TreeHacks/test.cpp",
+  "hash": "976d3077d3d2c46b93efa2f205279110b6e8e7872337dd5b8ebf0e509f975fcf"
+}],[
+{
+  "startTimeStamp": "2024-02-17T09:12:35.048Z",
+  "endTimeStamp": "2024-02-17T09:12:35.048Z",
+  "contentLength": 12,
+  "action": "typing",
+  "suspicious": false,
+  "text": "for int i=0;",
+  "lineNumber": 29,
+  "fileName": "/Users/cbang/Documents/TreeHacks/test.cpp",
+  "hash": "dcdab1f8428acd73caf66615612aa3fbbbb539e6d01b15d161632f95711f6a17"
+}]]
   return (
     <>
       <div className="flex flex-col w-full min-h-screen">
@@ -121,17 +144,17 @@ export function TeacherView() {
                   </div>
                 </div>
               </div>
-              <div className="absolute inset-y-0 left-2 flex items-center">
+              <div className="absolute inset-y-center left-2 flex items-center">
                 <button className="rounded-full bg-gray-200 p-3" onClick={undefined}>
                   {`<`}
                 </button>
               </div>
-              <div className="absolute inset-y-0 right-2 flex items-center">
+              <div className="absolute inset-y-center right-2 flex items-center">
                 <button className="rounded-full bg-gray-200 p-3" onClick={undefined}>
                   {`>`}
                 </button>
               </div>
-              <Button>View Suspicious Sections</Button>
+              <AllSectionsDialog jsonLogs={ jsonLogs } />
             </CardContent>
           </Card>
           <div className="grid gap-6 md:grid-cols-2">
