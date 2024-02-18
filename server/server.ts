@@ -11,13 +11,14 @@ const pool = new Pool({
     host: 'localhost',
     database: 'treehack',
     password: 'treehacks',
-    port: 5432,
+    port: 5433,
 });
 
 app.post('/query', async (req: Request, res: Response) => {
     const { query } = req.body; // Directly using the client's query is insecure
     try {
         const result = await pool.query(query);
+        console.log("This is the result: ", result.rows)
         res.json(result.rows);
     } catch (err) {
         console.error(err);
