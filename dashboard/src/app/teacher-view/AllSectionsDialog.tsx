@@ -17,7 +17,7 @@ type Log = {
     hash: string;
 };
 
-// Function to convert JSON object to Species object
+// Function to convert JSON object to Logs object
 function convertJsonToLog(jsonData: any): Log {
     return {
         startTimeStamp: jsonData.startTimeStamp || "",
@@ -32,7 +32,7 @@ function convertJsonToLog(jsonData: any): Log {
     };
 }
 
-export default function AllSectionsDialog({ jsonLogs }: { jsonLogs: any }) {
+export default function AllSectionsDialog({ jsonLogs }: { jsonLogs: Log[] }) {
 
     return (
         <Dialog>
@@ -41,21 +41,16 @@ export default function AllSectionsDialog({ jsonLogs }: { jsonLogs: any }) {
           </DialogTrigger>
           <DialogContent>
                 <h2>All Sections Details</h2>
-                {jsonLogs.map((innerArray, outerIndex) => (
-                    <div key={outerIndex}>
-                        <p>Array Order: {outerIndex + 1}</p>
-                        {innerArray.map((json, innerIndex) => {
-                            const species = convertJsonToLog(json);
-                            return (
-                                <div key={innerIndex}>
-                                    <p>Start Time: {species.startTimeStamp}</p>
-                                    {/* Add other properties as needed */}
-                                </div>
-                            );
-                        })}
-                        <hr />
-                    </div>
-                ))}
+                {jsonLogs.map((json, index) => {
+                    const logObject = convertJsonToLog(json);
+                    return (
+                    <div key={index}>
+                    <p>Start Time: {logObject.startTimeStamp}</p>
+              {/* Add other properties as needed */}
+              <hr />
+            </div>
+          );
+        })}
             </DialogContent>
           </Dialog>
   );
