@@ -21,7 +21,8 @@ The market for CodeGuardian is vast and growing, as coding bootcamps, universiti
 
 <img width="1365" alt="image" src="https://github.com/cbangera2/CodeGuardian/assets/18430740/41bd76b3-b51f-49c3-b65d-a7f07c415766">
 
-<img width="1365" alt="image" src="https://github.com/cbangera2/CodeGuardian/assets/18430740/9d8e71c8-693c-4571-8ab8-9961ebf5d4e5">
+<img width="1366" alt="image" src="https://github.com/cbangera2/CodeGuardian/assets/18430740/6a7d68fa-a51d-4e90-9a6d-3e5bea390cfc">
+
 
 <img width="1362" alt="image" src="https://github.com/cbangera2/CodeGuardian/assets/18430740/642083f4-5355-494e-a9a6-91ed09b95a97">
 
