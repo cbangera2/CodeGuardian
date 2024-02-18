@@ -25,21 +25,13 @@ export function Dashboard() {
     const formData = new FormData();
     formData.append('file', selectedFile);
 
-    const sql = 'SELECT * FROM json_data'; // Replace with your SQL command
-
-    axios.post<any>('http://localhost:3002/query', { query: sql })
-    .then(response => {
-      console.log(response.data);
-    })
-    .catch(error => {
-      console.error('There has been a problem with your fetch operation:', error);
-    });
-
     try {
       const response = await axios.post('http://localhost:3001/upload', formData);
       console.log(response.data);
     } catch (error) {
       console.error(error);
+    } finally {
+      window.location.reload();
     }
   };
 

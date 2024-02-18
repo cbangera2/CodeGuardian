@@ -5,6 +5,7 @@
 "use client";
 
 import Link from "next/link"
+import axios from 'axios';
 import { Button } from "@/components/ui/button"
 import { CardTitle, CardDescription, CardHeader, CardContent, Card } from "@/components/ui/card"
 import AllSectionsDialog from "./AllSectionsDialog";
@@ -49,12 +50,33 @@ export function TeacherView() {
     // Replace the following with your async function to fetch usernames
     const fetchData = async () => {
       // Fetch usernames and set them in the state
-      const fetchedUsernames: { username: string }[] = await yourAsyncFunctionToFetchUsernames();
+      let fetchedUsernames: { username: string }[] = []; // Initialize the fetchedUsernames variable with an empty array
+      const sqlUsername = 'SELECT username FROM json_data'; // Replace with your SQL command
+      await (async () => {
+        try {
+          const response = await axios.post<any>('http://localhost:3002/query', { query: sqlUsername });
+          fetchedUsernames = response.data;
+        } catch (error) {
+          console.error('There has been a problem with your fetch operation:', error);
+        }
+      })();
+      console.log(fetchedUsernames);
       const distinctUsernames = Array.from(new Set(fetchedUsernames.map(obj => obj.username)));
       setUsernames(distinctUsernames);
 
       // Fetch jsonLogs and set them in the state
-      const fetchedJsonLogs = await yourAsyncFunctionToFetchJsonLogs();
+      // Get the data from the server
+      let fetchedJsonLogs: any = []; // Define a variable to hold the response data
+      const sql = 'SELECT * FROM json_data'; // Replace with your SQL command
+      await (async () => {
+        try {
+          const response = await axios.post<any>('http://localhost:3002/query', { query: sql });
+          fetchedJsonLogs = response.data;
+        } catch (error) {
+          console.error('There has been a problem with your fetch operation:', error);
+        }
+      })();
+      console.log(fetchedJsonLogs);
       setJsonLogs(fetchedJsonLogs);
       
       // Set the initial selected username
