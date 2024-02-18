@@ -16,7 +16,6 @@ type Log = {
   endTimeStamp: string;
   contentLength: number;
   action: string;
-  suspicious: boolean;
   text: string;
   lineNumber: number;
   fileName: string;
@@ -31,7 +30,6 @@ function convertJsonToLog(jsonData: any): Log {
       endTimeStamp: jsonData.endTimeStamp || "",
       contentLength: jsonData.contentLength || 0,
       action: jsonData.action || "",
-      suspicious: jsonData.suspicious || false,
       text: jsonData.text || "",
       lineNumber: jsonData.lineNumber || 0,
       fileName: jsonData.fileName || "",
@@ -41,7 +39,7 @@ function convertJsonToLog(jsonData: any): Log {
 }
 
 export function TeacherView() {
-  /*const [usernames, setUsernames] = useState<string[]>([]);
+  const [usernames, setUsernames] = useState<string[]>([]);
   const [jsonLogs, setJsonLogs] = useState([]);
   // State to track the currently selected username
   const [selectedUsername, setSelectedUsername] = useState('');
@@ -51,61 +49,25 @@ export function TeacherView() {
     // Replace the following with your async function to fetch usernames
     const fetchData = async () => {
       // Fetch usernames and set them in the state
-      const fetchedUsernames = await yourAsyncFunctionToFetchUsernames();
-      setUsernames(fetchedUsernames);
+      const fetchedUsernames: { username: string }[] = await yourAsyncFunctionToFetchUsernames();
+      const distinctUsernames = Array.from(new Set(fetchedUsernames.map(obj => obj.username)));
+      setUsernames(distinctUsernames);
 
       // Fetch jsonLogs and set them in the state
       const fetchedJsonLogs = await yourAsyncFunctionToFetchJsonLogs();
       setJsonLogs(fetchedJsonLogs);
       
       // Set the initial selected username
-      if (fetchedUsernames.length > 0) {
-        setSelectedUsername(fetchedUsernames[0]);
+      if (distinctUsernames.length > 0) {
+        setSelectedUsername(distinctUsernames[0]);
       }
     };
 
     fetchData();
-  }, []);*/
+  }, []);
 
-  const usernames = ["cbang", "no"]
-  const [selectedUsername, setSelectedUsername] = useState('');
   const [filteredSections, setFilteredSections] = useState<Log[]>([]);
-  const jsonLogs = [{
-    "startTimeStamp": "2024-02-17T23:16:26.435Z",
-    "endTimeStamp": "2024-02-17T23:16:26.435Z",
-    "contentLength": 20,
-    "action": "typing",
-    "suspicious": false,
-    "text": "    return {-1, -1};",
-    "lineNumber": 9,
-    "fileName": "Untitled-1",
-    "hash": "0f694bc1a01350a3a4f73ba75f31c61ec19af674eb846078e59affb640d6582b",
-    "username": "cbang"
-  },
-  {
-    "startTimeStamp": "2024-02-17T23:16:27.039Z",
-    "endTimeStamp": "2024-02-17T23:16:29.329Z",
-    "contentLength": 2,
-    "action": "typing",
-    "suspicious": false,
-    "text": "};",
-    "lineNumber": 10,
-    "fileName": "Untitled-1",
-    "hash": "41c1442b0dde9a18991a146fabba46c3ee4f5c696d191acfc8c5bda9098d6c8a",
-    "username": "cbang"
-  },
-  {
-    "startTimeStamp": "2024-02-17T23:16:27.039Z",
-    "endTimeStamp": "2024-02-17T23:16:29.329Z",
-    "contentLength": 2,
-    "action": "typing",
-    "suspicious": false,
-    "text": "};",
-    "lineNumber": 10,
-    "fileName": "Untitled-1",
-    "hash": "41c1442b0dde9a18991a146fabba46c3ee4f5c696d191acfc8c5bda9098d6c8a",
-    "username": "no"
-  }]
+
 
   useEffect(() => {
     if (usernames.length > 0 && !selectedUsername) {
@@ -183,7 +145,7 @@ export function TeacherView() {
               return (
                 <div key={index}>
                   <div>{`Student Username: ${logObject.username}`}</div>
-                  <div className="font-semibold">Plagiarism Likelihood: {logObject.suspicious ? "None" : "High"}</div>
+                  <div className="font-semibold">Plagiarism Likelihood: "High"</div>
                   <div className="font-semibold">Suspicious Patterns: </div>
                   <div
                     style={{
