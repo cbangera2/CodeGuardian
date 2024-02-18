@@ -19,7 +19,8 @@ This helps:
 
 The market for CodeGuardian is vast and growing, as coding bootcamps, universities, and online learning platforms all face the challenge of maintaining academic integrity in the face of advancing AI. The future of coding education is at a crossroads, and by investing in CodeGuardian, you're not just funding a product; you're championing a cause. We invite you to join us in this mission to build a future where genuine coding talent is nurtured, valued, and shines brighter than ever. Invest in CodeGuardian, and let's ensure that academic integrity and genuine skill development remain at the heart of programming education.
 
-<img width="1365" alt="image" src="https://github.com/cbangera2/CodeGuardian/assets/18430740/41bd76b3-b51f-49c3-b65d-a7f07c415766">
+<img width="1366" alt="image" src="https://github.com/cbangera2/CodeGuardian/assets/18430740/52a22d1b-5ef1-4d92-8053-f42d36289503">
+
 
 <img width="1366" alt="image" src="https://github.com/cbangera2/CodeGuardian/assets/18430740/6a7d68fa-a51d-4e90-9a6d-3e5bea390cfc">
 
