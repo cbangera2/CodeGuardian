@@ -60,7 +60,7 @@ function convertJsonToMetric(jsonData: any): Metric {
 export function TeacherView() {
   const [usernames, setUsernames] = useState<string[]>([]);
   const [jsonLogs, setJsonLogs] = useState([]);
-  const [jsonMetrics, setJsonMetrics] = useState([]);
+  const [jsonMetrics, setJsonMetrics] = useState<Metric[]>([]);
   // State to track the currently selected username
   const [selectedUsername, setSelectedUsername] = useState('');
 
