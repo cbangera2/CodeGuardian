@@ -24,24 +24,43 @@ type Log = {
   username: string;
 };
 
+type Metric = {
+  averagetypingspeed: number;
+  suspiciousedits: number;
+  totaledits: number;
+  totallinesedited: number;
+  username: string;
+}
+
 // Function to convert JSON object to Logs object
 function convertJsonToLog(jsonData: any): Log {
   return {
-      startTimeStamp: jsonData.startTimeStamp || "",
-      endTimeStamp: jsonData.endTimeStamp || "",
-      contentLength: jsonData.contentLength || 0,
-      action: jsonData.action || "",
-      text: jsonData.text || "",
-      lineNumber: jsonData.lineNumber || 0,
-      fileName: jsonData.fileName || "",
-      hash: jsonData.hash || "",
-      username: jsonData.username || "",
+    startTimeStamp: jsonData.startTimeStamp || "",
+    endTimeStamp: jsonData.endTimeStamp || "",
+    contentLength: jsonData.contentLength || 0,
+    action: jsonData.action || "",
+    text: jsonData.text || "",
+    lineNumber: jsonData.lineNumber || 0,
+    fileName: jsonData.fileName || "",
+    hash: jsonData.hash || "",
+    username: jsonData.username || "",
+  };
+}
+
+function convertJsonToMetric(jsonData: any): Metric {
+  return {
+    averagetypingspeed: jsonData.averagetypingspeed || 0,
+    suspiciousedits: jsonData.suspiciousedits || 0,
+    totaledits: jsonData.totaledits || 0,
+    totallinesedited: jsonData.totallinesedited || 0,
+    username: jsonData.username || "",
   };
 }
 
 export function TeacherView() {
   const [usernames, setUsernames] = useState<string[]>([]);
   const [jsonLogs, setJsonLogs] = useState([]);
+  const [jsonMetrics, setJsonMetrics] = useState([]);
   // State to track the currently selected username
   const [selectedUsername, setSelectedUsername] = useState('');
 
@@ -51,10 +70,10 @@ export function TeacherView() {
     const fetchData = async () => {
       // Fetch usernames and set them in the state
       let fetchedUsernames: { username: string }[] = []; // Initialize the fetchedUsernames variable with an empty array
-      const sqlUsername = 'SELECT username FROM json_data'; // Replace with your SQL command
+      const sqlUser = 'SELECT username FROM json_data'; // Replace with your SQL command
       await (async () => {
         try {
-          const response = await axios.post<any>('http://localhost:3002/query', { query: sqlUsername });
+          const response = await axios.post<any>('http://localhost:3002/query', { query: sqlUser });
           fetchedUsernames = response.data;
         } catch (error) {
           console.error('There has been a problem with your fetch operation:', error);
@@ -76,9 +95,22 @@ export function TeacherView() {
           console.error('There has been a problem with your fetch operation:', error);
         }
       })();
+
+      let fetchedJsonMetrics: any = [] // Initialize the fetchedUsernames variable with an empty array
+      const sqlUsername = 'SELECT * FROM user_edit_summary'; // Replace with your SQL command
+      await (async () => {
+        try {
+          const response = await axios.post<any>('http://localhost:3002/query', { query: sqlUsername });
+          fetchedJsonMetrics = response.data;
+        } catch (error) {
+          console.error('There has been a problem with your fetch operation:', error);
+        }
+      })();
+
       console.log(fetchedJsonLogs);
       setJsonLogs(fetchedJsonLogs);
-      
+      setJsonMetrics(fetchedJsonMetrics);
+
       // Set the initial selected username
       if (distinctUsernames.length > 0) {
         setSelectedUsername(distinctUsernames[0]);
@@ -102,7 +134,7 @@ export function TeacherView() {
     setFilteredSections(newFilteredSections);
   }, [selectedUsername]);
 
-  const handleUsernameChange = (direction : number) => {
+  const handleUsernameChange = (direction: number) => {
     const currentIndex = usernames.indexOf(selectedUsername);
     console.log(currentIndex)
     const newIndex = (currentIndex + direction + usernames.length) % usernames.length;
@@ -133,7 +165,7 @@ export function TeacherView() {
               Settings
             </Link>
           </nav>
-          
+
           <div className="flex items-center w-full gap-4 md:ml-auto md:gap-2 lg:gap-4">
 
             <Button className="rounded-full ml-auto" size="icon" variant="ghost">
@@ -153,8 +185,8 @@ export function TeacherView() {
           </div>
         </header>
         <div >
-            <ClassStats />
-      </div>
+          <ClassStats />
+        </div>
         <main className="flex flex-1 flex-col gap-4 max-w-6xl w-full mx-auto ">
           <Card className="w-full">
             <CardHeader>
@@ -162,25 +194,25 @@ export function TeacherView() {
               <CardDescription>Identify potentially plagiarized or suspicious code sections.</CardDescription>
             </CardHeader>
             <CardContent className="flex flex-col gap-4">
-            {filteredSections.map((jsonObject, index) => {
-              const logObject = convertJsonToLog(jsonObject);
-              return (
-                <div key={index}>
-                  <div>{`Student Username: ${logObject.username}`}</div>
-                  <div className="font-semibold">Plagiarism Likelihood: "High"</div>
-                  <div className="font-semibold">Suspicious Patterns: </div>
-                  <div
-                    style={{
-                      backgroundColor: "red",
-                      borderRadius: "5px",
-                      padding: "10px",
-                    }}
-                  >
-                    <code>{logObject.text}</code>
+              {filteredSections.map((jsonObject, index) => {
+                const logObject = convertJsonToLog(jsonObject);
+                return (
+                  <div key={index}>
+                    <div>{`Student Username: ${logObject.username}`}</div>
+                    <div className="font-semibold">Plagiarism Likelihood: "High"</div>
+                    <div className="font-semibold">Suspicious Patterns: </div>
+                    <div
+                      style={{
+                        backgroundColor: "red",
+                        borderRadius: "5px",
+                        padding: "10px",
+                      }}
+                    >
+                      <code>{logObject.text}</code>
+                    </div>
                   </div>
-                  </div>
-                  );
-                })}
+                );
+              })}
               <div className="absolute inset-y-center left-2 flex items-center">
                 <button className="rounded-full bg-gray-200 p-3" onClick={() => handleUsernameChange(-1)}>
                   {`<`}
@@ -191,7 +223,7 @@ export function TeacherView() {
                   {`>`}
                 </button>
               </div>
-              <AllSectionsDialog jsonLogs={ jsonLogs } />
+              <AllSectionsDialog jsonLogs={jsonLogs} />
             </CardContent>
           </Card>
           <div className="grid gap-6 md:grid-cols-2">
@@ -221,25 +253,26 @@ export function TeacherView() {
                   <div className="font-semibold">Lines of Code</div>
                   <div className="font-semibold">Complexity</div>
                   <div className="font-semibold">Quality Score</div>
-                  <div className="font-semibold">Student 1</div>
-                  <div>120</div>
-                  <div>10</div>
-                  <div>85%</div>
-                  <div className="font-semibold">Student 2</div>
-                  <div>95</div>
-                  <div>8</div>
-                  <div>92%</div>
-                  <div className="font-semibold">Student 3</div>
-                  <div>80</div>
-                  <div>12</div>
-                  <div>78%</div>
+                  {usernames.map((username, index) => {
+                    const studentMetrics = convertJsonToMetric(jsonMetrics.find((metric : Metric) => metric.username === username)) || { username: '' };
+                    const percentage = (studentMetrics.totaledits - studentMetrics.suspiciousedits) / studentMetrics.totaledits * 100;
+
+                    return (
+                      <div key={index}>
+                        <div className="font-semibold">{ }</div>
+                        <div>{studentMetrics.totaledits}</div>
+                        <div>{percentage}%</div>
+                        <div>{studentMetrics.totallinesedited}</div>
+                      </div>
+                    );
+                  })}
                 </div>
               </CardContent>
             </Card>
           </div>
         </main>
       </div>
-      
+
     </>
   )
 }
