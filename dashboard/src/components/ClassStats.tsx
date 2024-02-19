@@ -33,28 +33,28 @@ export function ClassStats() {
               <CardTitle>Students</CardTitle>
               <CardDescription className="ml-auto">Total</CardDescription>
             </CardHeader>
-            <CardContent className="text-4xl font-bold">1,234</CardContent>
+            <CardContent className="text-4xl font-bold">2</CardContent>
           </Card>
           <Card>
             <CardHeader className="flex flex-row items-center border-b">
               <CardTitle>Assignments</CardTitle>
               <CardDescription className="ml-auto">Completed</CardDescription>
             </CardHeader>
-            <CardContent className="text-4xl font-bold">5,678</CardContent>
+            <CardContent className="text-4xl font-bold">3</CardContent>
           </Card>
           <Card>
             <CardHeader className="flex flex-row items-center border-b">
               <CardTitle>Activity</CardTitle>
               <CardDescription className="ml-auto">Today</CardDescription>
             </CardHeader>
-            <CardContent className="text-4xl font-bold">987</CardContent>
+            <CardContent className="text-4xl font-bold">9</CardContent>
           </Card>
           <Card>
             <CardHeader className="flex flex-row items-center border-b">
               <CardTitle>Integrity Alerts</CardTitle>
               <CardDescription className="ml-auto">Pending</CardDescription>
             </CardHeader>
-            <CardContent className="text-4xl font-bold">23</CardContent>
+            <CardContent className="text-4xl font-bold">5</CardContent>
           </Card>
         </div>
         <div className="grid gap-6 max-w-6xl w-full mx-auto">
@@ -90,7 +90,7 @@ export function ClassStats() {
                 <TableBody>
                   <TableRow>
                     <TableCell>10:00</TableCell>
-                    <TableCell>alice</TableCell>
+                    <TableCell>cbang</TableCell>
                     <TableCell>index.js</TableCell>
                     <TableCell>10</TableCell>
                     <TableCell>edit</TableCell>
@@ -106,7 +106,7 @@ export function ClassStats() {
                   </TableRow>
                   <TableRow>
                     <TableCell>10:10</TableCell>
-                    <TableCell>alice</TableCell>
+                    <TableCell>cbang</TableCell>
                     <TableCell>index.js</TableCell>
                     <TableCell>10</TableCell>
                     <TableCell>edit</TableCell>
@@ -156,7 +156,7 @@ export function ClassStats() {
                 <TableBody>
                   <TableRow>
                     <TableCell>10:00</TableCell>
-                    <TableCell>alice</TableCell>
+                    <TableCell>cbang</TableCell>
                     <TableCell>index.js</TableCell>
                     <TableCell>10</TableCell>
                     <TableCell>
@@ -174,7 +174,7 @@ export function ClassStats() {
                   </TableRow>
                   <TableRow>
                     <TableCell>10:10</TableCell>
-                    <TableCell>alice</TableCell>
+                    <TableCell>cbang</TableCell>
                     <TableCell>index.js</TableCell>
                     <TableCell>10</TableCell>
                     <TableCell>

@@ -62,7 +62,8 @@ export default function AllSectionsDialog({ jsonLogs }: { jsonLogs: any }) {
                     return (
                     <div key={index}>
                     <p>Start Time: {logObject.startTimeStamp}</p>
-              {/* Add other properties as needed */}
+                    <p>Content: {logObject.text}</p>
+                    {/* Add other properties as needed */}
               <hr />
             </div>
           );

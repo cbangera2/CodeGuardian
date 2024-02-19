@@ -212,6 +212,7 @@ export function TeacherView() {
                   </div>
                 );
               })}
+              <AllSectionsDialog jsonLogs={jsonLogs} />
               <div className="absolute inset-y-center left-2 flex items-center">
                 <button className="rounded-full bg-gray-200 p-3" onClick={() => handleUsernameChange(-1)}>
                   {`<`}
@@ -222,7 +223,7 @@ export function TeacherView() {
                   {`>`}
                 </button>
               </div>
-              <AllSectionsDialog jsonLogs={jsonLogs} />
+              
             </CardContent>
           </Card>
           <div className="grid gap-6 md:grid-cols-2">
@@ -247,26 +248,31 @@ export function TeacherView() {
                 <CardDescription>View detailed code metrics for the submissions.</CardDescription>
               </CardHeader>
               <CardContent className="flex flex-col gap-4">
-                <div className="grid grid-cols-4 gap-4 text-sm">
-                  <div />
-                  <div className="font-semibold">Lines of Code</div>
-                  <div className="font-semibold">Complexity</div>
-                  <div className="font-semibold">Quality Score</div>
-                  {usernames.map((username, index) => {
-                    const studentMetric = jsonMetrics.find((metric: Metric) => metric.username === username);
-                    const studentMetrics = convertJsonToMetric(studentMetric) || { username: '', totaledits: 0, suspiciousedits: 0, totallinesedited: 0 };
-                    const percentage = (studentMetrics.totaledits - studentMetrics.suspiciousedits) / studentMetrics.totaledits * 100;
+              <table>
+              <thead>
+                <tr>
+                  <td className="font-semibold">Username</td>
+                  <td className="font-semibold">Lines of Code</td>
+                  <td className="font-semibold">Complexity</td>
+                  <td className="font-semibold">Quality Score</td>
+                </tr>
+              </thead>
+              <tbody>
+                {jsonMetrics.map((studentMetric, index) => {
+                  const studentMetrics = convertJsonToMetric(studentMetric) || { username: '', totaledits: 0, suspiciousedits: 0, totallinesedited: 0 };
+                  const percentage = (studentMetrics.totaledits - studentMetrics.suspiciousedits) / studentMetrics.totaledits * 100;
 
-                    return (
-                      <div key={index}>
-                        <div className="font-semibold">{ username }</div>
-                        <div>{studentMetrics.totaledits}</div>
-                        <div>{percentage}%</div>
-                        <div>{studentMetrics.totallinesedited}</div>
-                      </div>
-                    );
-                  })}
-                </div>
+                  return (
+                    <tr key={index}>
+                      <td className="font-semibold">{ studentMetrics.username }</td>
+                      <td>{studentMetrics.totaledits}</td>
+                      <td>{studentMetrics.suspiciousedits}</td>
+                      <td>{percentage}%</td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
               </CardContent>
             </Card>
           </div>
